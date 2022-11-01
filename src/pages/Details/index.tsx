@@ -20,7 +20,7 @@ const Details = () => {
           id,
           title,
           sinopse: overview,
-          image: `${imageUrl}${poster_path}`,
+          image: `${imageUrl}${poster_path}`, 
           release: release_date,
         };
         setMovie(movie);

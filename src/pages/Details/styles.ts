@@ -39,15 +39,15 @@ export const Container = styled.div`
     margin-top: 1rem;
     opacity: 0.7;
   }
-  
+
   .buttons {
-      display: flex;
-      gap: 0.7rem;
-      margin-top: 1rem;
-      
-      @media (max-width: 600px){
-          gap: 7.7rem;
-      }
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 1rem;
+
+    @media (max-width: 600px) {
+      gap: 7.7rem;
+    }
   }
 
   span {
@@ -71,6 +71,5 @@ export const Container = styled.div`
     &:hover {
       background: #930e1f;
     }
-
   }
 `;

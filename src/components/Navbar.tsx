@@ -5,12 +5,11 @@ import { useState } from "react";
 import { RiMovie2Fill } from "react-icons/ri";
 import { GoSearch } from "react-icons/go";
 
-
 const Navbar = () => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.ChangeEvent<any>): void => {
+  const handleSubmit = (e: React.ChangeEvent<any>): any => {
     e.preventDefault();
     
     setSearch(e.target.value);
