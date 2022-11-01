@@ -1,4 +1,4 @@
-<img src="src/gif/movieflix.gif" alt="Movie Flix">
+<img src="public/gif/movieflix.gif" alt="Movie Flix">
 
 # Movie Flix
 
