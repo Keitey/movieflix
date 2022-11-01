@@ -5,7 +5,7 @@ import { useState } from "react";
 import { RiMovie2Fill } from "react-icons/ri";
 import { GoSearch } from "react-icons/go";
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
   const [search, setSearch] = useState("");
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <C.Nav>
       <Link to="/">
-        <h1>
+      <h1>
           <RiMovie2Fill size={40} />
           Movie Flix
         </h1>

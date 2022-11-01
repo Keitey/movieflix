@@ -2,12 +2,19 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { APIKey } from "../../configKey/key";
 
-import { Circles } from 'react-loader-spinner'
+import { Circles } from "react-loader-spinner";
 
 import * as C from "./styles";
 
+interface myHome {
+  id: number;
+  poster_path: string;
+  title: string;
+  vote_average: number;
+}
+
 const Home = () => {
-  const [movies, setMovies] = useState<any[]>([]);
+  const [movies, setMovies] = useState<myHome[]>([]);
   const image_path = "https://image.tmdb.org/t/p/w500";
 
   useEffect(() => {
@@ -21,9 +28,9 @@ const Home = () => {
   if (movies.length === 0) {
     return (
       <div className="loading">
-        <Circles color="#f31734"/>
+        <Circles color="#f31734" />
       </div>
-    )
+    );
   }
 
   return (
