@@ -19,13 +19,16 @@ const Home = () => {
   const image_path = "https://image.tmdb.org/t/p/w500";
 
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${APIKey}&language=pt-BR`
-      )
-      .then((res) => {
-        setMovies(res.data.results);
-      });
+    const getMovies = () => {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/popular?api_key=${APIKey}&language=pt-BR`
+        )
+        .then((res) => {
+          setMovies(res.data.results);
+        }).catch((err) => console.log('erro: ' + err));
+    };
+    getMovies();
   }, []);
 
   if (movies.length === 0) {
