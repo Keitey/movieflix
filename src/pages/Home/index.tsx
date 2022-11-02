@@ -3,26 +3,29 @@ import { Link } from "react-router-dom";
 import { APIKey } from "../../configKey/key";
 
 import { Circles } from "react-loader-spinner";
-
+import axios from "axios";
 import * as C from "./styles";
 
-interface myHome {
+interface HomeItems {
   id: number;
+  image_path: string;
   poster_path: string;
   title: string;
   vote_average: number;
 }
 
 const Home = () => {
-  const [movies, setMovies] = useState<myHome[]>([]);
+  const [movies, setMovies] = useState<HomeItems[]>([]);
   const image_path = "https://image.tmdb.org/t/p/w500";
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${APIKey}&language=pt-BR`
-    )
-      .then((response) => response.json())
-      .then((data) => setMovies(data.results));
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/popular?api_key=${APIKey}&language=pt-BR`
+      )
+      .then((res) => {
+        setMovies(res.data.results);
+      });
   }, []);
 
   if (movies.length === 0) {
