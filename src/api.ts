@@ -6,7 +6,7 @@ export const getMovies = async () => {
     return json
 }
 
-export const getMovieDetail = async (id: string) => {
+export const getMovieDetail = async (id: any) => {
     const url = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${APIKey}&language=pt-BR&page=1`)
     const json = await url.json()
     return json

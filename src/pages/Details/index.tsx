@@ -1,30 +1,26 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { APIKey } from "../../configKey/key";
-
+import { getMovieDetail } from "../../api";
 import * as C from "./styles";
 
-const Details = () => {
+const Details: React.FC = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState<any>({});
   const imageUrl = "https://image.tmdb.org/t/p/w500";
 
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${APIKey}&language=pt-BR&page=1`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        const { title, overview, poster_path, release_date } = data;
-        const movie = {
-          id,
-          title,
-          sinopse: overview,
-          image: `${imageUrl}${poster_path}`, 
-          release: release_date,
-        };
-        setMovie(movie);
-      })
+    async function fetchData() {
+      const data = await getMovieDetail(id);
+      const movie = {
+        id,
+        title: data.title,
+        sinopse: data.overview,
+        image: `${imageUrl}${data.poster_path}`,
+        release: data.release,
+      };
+      setMovie(movie);
+    }
+    fetchData();
   }, [id]);
 
   return (
@@ -51,7 +47,5 @@ const Details = () => {
     </C.Container>
   );
 };
-
-
 
 export default Details;
