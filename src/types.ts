@@ -4,4 +4,15 @@ export interface HomeItems {
   poster_path: string;
   title: string;
   vote_average: number;
+  image: string;
 }
+
+export interface movieDetails {
+  title: string;
+  overview: string;
+  release_date: string;
+  image_path: string;
+  poster_path: string;
+  image: string;
+}
+

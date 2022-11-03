@@ -1,51 +1,46 @@
 import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { getMovieDetail } from "../../api";
+import { useEffect } from "react";
 import * as C from "./styles";
+import { observer, useLocalObservable } from "mobx-react-lite";
+import { Store } from "./store";
 
 const Details: React.FC = () => {
+  const store = useLocalObservable(() => new Store());
   const { id } = useParams();
-  const [movie, setMovie] = useState<any>({});
-  const imageUrl = "https://image.tmdb.org/t/p/w500";
+  const image_path = "https://image.tmdb.org/t/p/w500";
 
   useEffect(() => {
-    async function fetchData() {
-      const data = await getMovieDetail(id);
-      const movie = {
-        id,
-        title: data.title,
-        sinopse: data.overview,
-        image: `${imageUrl}${data.poster_path}`,
-        release: data.release,
-      };
-      setMovie(movie);
-    }
-    fetchData();
-  }, [id]);
+    store.fetch(id);
+  }, [store, id]);
 
   return (
-    <C.Container>
-      <div className="movie">
-        <img src={movie.image} alt={movie.title} />
-        <div className="details">
-          <h2>{movie.title}</h2>
-          <span>Sinopse: {movie.sinopse}</span>
-          <span className="release">Data de Lançamento: {movie.release}</span>
-          <div className="buttons">
-            <Link to="/">
-              <button>Voltar</button>
-            </Link>
-            <a
-              target="blank"
-              href={`https://www.youtube.com/results?search_query=${movie.title}`}
-            >
-              <button>Trailer</button>
-            </a>
+    <>
+      <C.Container>
+        <div className="movie">
+          <img
+            src={`${image_path}${store.movies?.poster_path}`}
+            alt={store.movies?.title}
+          />
+          <div className="details">
+            <h2>{store.movies?.title}</h2>
+            <span>Sinopse: {store.movies?.overview}</span>
+            <span className="release">Data de Lançamento: {store.movies?.release_date}</span>
+            <div className="buttons">
+              <Link to="/">
+                <button>Voltar</button>
+              </Link>
+              <a
+                target="blank"
+                href={`https://www.youtube.com/results?search_query=$`}
+              >
+                <button>Trailer</button>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </C.Container>
+      </C.Container>
+    </>
   );
 };
 
-export default Details;
+export default observer(Details);

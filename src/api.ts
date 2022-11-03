@@ -1,5 +1,6 @@
 import { APIKey } from "./configKey/key";
 
+
 export const getMovies = async () => {
     const url = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKey}&language=pt-BR`)
     const json = await url.json()

@@ -1,37 +1,33 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { Circles } from "react-loader-spinner";
 import * as C from "./styles";
 
-import { HomeItems } from "../../types";
-import { getMovies } from "../../api";
+import { observer, useLocalObservable } from 'mobx-react-lite'
+import { Store } from "./store";
 
-const Home = () => {
-  const [movies, setMovies] = useState<HomeItems[]>([]);
+const Home: React.FC = () => {
+  const store = useLocalObservable(() => new Store());
   const image_path = "https://image.tmdb.org/t/p/w500";
 
   useEffect(() => {
-    async function fetchMovies() {
-      const list = await getMovies();
-      setMovies(list.results);
-    }
-    fetchMovies();
-  }, []);
+    store.fetch()
+  }, [store]);
 
-  if (movies.length === 0) {
-    return (
-      <div className="loading">
-        <Circles color="#f31734" />
-      </div>
-    );
-  }
+  // if (movies.length === 0) {
+  //   return (
+  //     <div className="loading">
+  //       <Circles color="#f31734" />
+  //     </div>
+  //   );
+  // }
 
   return (
     <C.Container>
       <h1>Filmes Populares</h1>
       <C.MovieList>
-        {movies.map((movie) => {
+        {store.movies.map((movie) => {
           return (
             <C.Movie key={movie.id}>
               <Link to={`/details/${movie.id}`}>
@@ -50,4 +46,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default observer(Home);
