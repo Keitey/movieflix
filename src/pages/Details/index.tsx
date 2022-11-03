@@ -31,7 +31,7 @@ const Details: React.FC = () => {
               </Link>
               <a
                 target="blank"
-                href={`https://www.youtube.com/results?search_query=$`}
+                href={`https://www.youtube.com/results?search_query=${store.movies?.title}`}
               >
                 <button>Trailer</button>
               </a>
