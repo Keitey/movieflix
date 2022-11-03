@@ -1,5 +1,5 @@
 export interface HomeItems {
-  id: number;
+  id: string;
   image_path: string;
   poster_path: string;
   title: string;

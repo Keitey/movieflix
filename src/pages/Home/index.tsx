@@ -1,34 +1,22 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { APIKey } from "../../configKey/key";
 
 import { Circles } from "react-loader-spinner";
-import axios from "axios";
 import * as C from "./styles";
 
-interface HomeItems {
-  id: number;
-  image_path: string;
-  poster_path: string;
-  title: string;
-  vote_average: number;
-}
+import { HomeItems } from "../../types";
+import { getMovies } from "../../api";
 
 const Home = () => {
   const [movies, setMovies] = useState<HomeItems[]>([]);
   const image_path = "https://image.tmdb.org/t/p/w500";
 
   useEffect(() => {
-    const getMovies = () => {
-      axios
-        .get(
-          `https://api.themoviedb.org/3/movie/popular?api_key=${APIKey}&language=pt-BR`
-        )
-        .then((res) => {
-          setMovies(res.data.results);
-        }).catch((err) => console.log('erro: ' + err));
-    };
-    getMovies();
+    async function fetchMovies() {
+      const list = await getMovies();
+      setMovies(list.results);
+    }
+    fetchMovies();
   }, []);
 
   if (movies.length === 0) {
