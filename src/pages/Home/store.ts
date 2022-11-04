@@ -15,6 +15,6 @@ export class Store {
 
   public fetch = async() => {
     const list = await getMovies();
-    this.movies = await list.results
+    this.movies = list.results
   }
 }

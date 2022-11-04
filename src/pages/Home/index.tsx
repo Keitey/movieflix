@@ -15,13 +15,13 @@ const Home: React.FC = () => {
     store.fetch()
   }, [store]);
 
-  // if (movies.length === 0) {
-  //   return (
-  //     <div className="loading">
-  //       <Circles color="#f31734" />
-  //     </div>
-  //   );
-  // }
+  if (store.movies.length === 0) {
+    return (
+      <div className="loading">
+        <Circles color="#f31734" />
+      </div>
+    );
+  }
 
   return (
     <C.Container>
