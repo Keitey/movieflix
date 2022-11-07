@@ -1,20 +1,12 @@
-import { makeAutoObservable, observable } from "mobx";
+import { makeAutoObservable } from "mobx";
+import { PaginatedListShelf } from '@startapp/mobx-utils'
 import { HomeItems } from "../../types";
 import { getMovies } from "../../api";
 
 export class Store {
-
   constructor() {
-    makeAutoObservable(this, {
-      movies: observable,
-      loading: observable,
-    });
+    makeAutoObservable(this)
+    this.moviesShelf = new PaginatedListShelf(getMovies);
   }
-  public movies: HomeItems[] = [];
-  public loading: boolean = false;
-
-  public fetch = async() => {
-    const list = await getMovies();
-    this.movies = list.results
-  }
+  public moviesShelf: PaginatedListShelf<HomeItems>
 }

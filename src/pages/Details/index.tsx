@@ -5,39 +5,45 @@ import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
 
 const Details: React.FC = () => {
-  const store = useLocalObservable(() => new Store());
   const { id } = useParams();
+  const store = useLocalObservable(() => new Store(id));
   const image_path = "https://image.tmdb.org/t/p/w500";
 
   useEffect(() => {
-    store.fetch(id);
-  }, [store, id]);
+    store.fetchShelf.fetchModel();
+  }, []);
 
   return (
     <>
       <C.Container>
-        <div className="movie">
-          <img
-            src={`${image_path}${store.movies?.poster_path}`}
-            alt={store.movies?.title}
-          />
-          <div className="details">
-            <h2>{store.movies?.title}</h2>
-            <span>Sinopse: {store.movies?.overview}</span>
-            <span className="release">Data de Lançamento: {store.movies?.release_date}</span>
-            <div className="buttons">
-              <Link to="/">
-                <button>Voltar</button>
-              </Link>
-              <a
-                target="blank"
-                href={`https://www.youtube.com/results?search_query=${store.movies?.title}`}
-              >
-                <button>Trailer</button>
-              </a>
+        {store.fetchShelf.loader.isLoading ? (
+          <span>carregando...</span>
+        ) : (
+          <div className="movie">
+            <img
+              src={`${image_path}${store.fetchShelf.fetchedModel.poster_path}`}
+              alt={store.fetchShelf.fetchedModel.title}
+            />
+            <div className="details">
+              <h2>{store.fetchShelf.fetchedModel.title}</h2>
+              <span>Sinopse: {store.fetchShelf.fetchedModel.overview}</span>
+              <span className="release">
+                Data de Lançamento: {store.fetchShelf.fetchedModel.release_date}
+              </span>
+              <div className="buttons">
+                <Link to="/">
+                  <button>Voltar</button>
+                </Link>
+                <a
+                  target="blank"
+                  href={`https://www.youtube.com/results?search_query=${store.fetchShelf.fetchedModel.title}`}
+                >
+                  <button>Trailer</button>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </C.Container>
     </>
   );

@@ -14,5 +14,6 @@ export interface movieDetails {
   image_path: string;
   poster_path: string;
   image: string;
+  id: string;
 }
 
