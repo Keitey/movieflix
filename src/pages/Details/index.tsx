@@ -18,6 +18,8 @@ const Details: React.FC = () => {
       <C.Container>
         {store.fetchShelf.loader.isLoading ? (
           <span>carregando...</span>
+        ) : !store.fetchShelf.hasModel ? (
+          <span className="unfound">Movie not found 😥</span>
         ) : (
           <div className="movie">
             <img
