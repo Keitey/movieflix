@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Error = styled.div`
     display: flex;
@@ -17,3 +17,4 @@ export const Error = styled.div`
         font-size: 25px;
     }
 `
+;

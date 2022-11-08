@@ -5,22 +5,23 @@ import Search from "./pages/Search";
 import Erro from "./pages/Erro";
 import Navbar from "./components/Navbar";
 import Global from "./global";
+import React from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+	document.getElementById("root") as HTMLElement,
 );
 
 root.render(
-  <BrowserRouter>
-    <Navbar />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/details/:id" element={<Details/>} />
-      <Route path="/search" element={<Search />} />
-      <Route path="*" element={<Erro />} />
-    </Routes>
-    <Global />
-  </BrowserRouter>
+	<BrowserRouter>
+		<Navbar />
+		<Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/details/:id" element={<Details />} />
+			<Route path="/search" element={<Search />} />
+			<Route path="*" element={<Erro />} />
+		</Routes>
+		<Global />
+	</BrowserRouter>,
 );

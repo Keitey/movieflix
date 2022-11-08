@@ -1,19 +1,19 @@
 export interface HomeItems {
-  id: string;
-  image_path: string;
-  poster_path: string;
-  title: string;
-  vote_average: number;
-  image: string;
+	id: string;
+	image_path: string;
+	poster_path: string;
+	title: string;
+	vote_average: number;
+	image: string;
 }
 
 export interface movieDetails {
-  title: string;
-  overview: string;
-  release_date: string;
-  image_path: string;
-  poster_path: string;
-  image: string;
-  id: string;
+	title: string;
+	overview: string;
+	release_date: string;
+	image_path: string;
+	poster_path: string;
+	image: string;
+	id: string;
 }
 
