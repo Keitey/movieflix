@@ -11,7 +11,7 @@ const Details: React.FC = () => {
 
   useEffect(() => {
     store.fetchShelf.fetchModel();
-  }, []);
+  }, [store.fetchShelf]);
 
   return (
     <>
