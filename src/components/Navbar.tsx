@@ -1,7 +1,7 @@
 import * as C from "./styles";
 import { Link, useNavigate } from "react-router-dom";
 import React,{ useState } from "react";
-
+import { Box, Text } from "@chakra-ui/react";
 import { RiMovie2Fill } from "react-icons/ri";
 import { GoSearch } from "react-icons/go";
 
@@ -21,12 +21,17 @@ const Navbar: React.FC = () => {
 	};
 
 	return (
-		<C.Nav>
+		<Box display="flex" justifyContent="space-around">
 			<Link to="/">
-				<h1>
+				<Text display="flex"
+					alignItems="center"
+					justifyContent="center"
+					color="#f31734"
+					fontSize="4xl"
+				>
 					<RiMovie2Fill size={40} />
 					Movie Flix
-				</h1>
+				</Text>
 			</Link>
 			<C.SearchMovie>
 				<form>
@@ -43,7 +48,7 @@ const Navbar: React.FC = () => {
 					</button>
 				</form>
 			</C.SearchMovie>
-		</C.Nav>
+		</Box>
 	);
 };
 

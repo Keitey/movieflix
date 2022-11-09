@@ -4,7 +4,6 @@ import Details from "./pages/Details";
 import Search from "./pages/Search";
 import Erro from "./pages/Erro";
 import Navbar from "./components/Navbar";
-// import Global from "./global";
 import React from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -15,7 +14,7 @@ const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement,
 );
 
-export const theme = extendTheme({
+const theme = extendTheme({
 	styles: {
 		global: {
 			body: {
@@ -36,7 +35,6 @@ root.render(
 				<Route path="/search" element={<Search />} />
 				<Route path="*" element={<Erro />} />
 			</Routes>
-			{/* <Global /> */}
 		</BrowserRouter>
 	</ChakraProvider>,
 );
