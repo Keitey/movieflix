@@ -1,7 +1,6 @@
-import * as C from "./styles";
 import { Link, useNavigate } from "react-router-dom";
 import React,{ useState } from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Text, Input, IconButton } from "@chakra-ui/react";
 import { RiMovie2Fill } from "react-icons/ri";
 import { GoSearch } from "react-icons/go";
 
@@ -21,33 +20,55 @@ const Navbar: React.FC = () => {
 	};
 
 	return (
-		<Box display="flex" justifyContent="space-around">
+		<Box
+			display="flex"
+			justifyContent="space-around"
+			p="0.8rem 1rem"
+		>
 			<Link to="/">
-				<Text display="flex"
+				<Text
+					display="flex"
 					alignItems="center"
 					justifyContent="center"
 					color="#f31734"
 					fontSize="4xl"
+					as="b"
 				>
 					<RiMovie2Fill size={40} />
 					Movie Flix
 				</Text>
 			</Link>
-			<C.SearchMovie>
-				<form>
-					<input
-						type="search"
-						name="movie"
-						id="movie"
-						placeholder="Buscar filme..."
-						onChange={handleSubmit}
-						value={search}
-					/>
-					<button>
-						<GoSearch />
-					</button>
-				</form>
-			</C.SearchMovie>
+			<Box
+				display="flex"
+				gap="2"
+				p="9.5"
+			>
+				<Input
+					type="search"
+					name="movie"
+					id="movie"
+					placeholder="Buscar filme..."
+					onChange={handleSubmit}
+					value={search}
+					border="1px solid"
+					isInvalid
+					borderColor="#f31734"
+					focusBorderColor="#f31734"
+					borderRadius="8px"
+				/>
+				<IconButton
+					color="#fff"
+					css={{
+						":hover":{
+							background: "#fff",
+							color: "#f31734",
+						},
+					}}
+					background="#f31734"
+					icon={<GoSearch />}
+					aria-label=""
+				/>
+			</Box>
 		</Box>
 	);
 };

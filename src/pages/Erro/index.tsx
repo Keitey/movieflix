@@ -1,13 +1,36 @@
 import { Link } from "react-router-dom";
-import * as C from "./styles";
 import React from "react";
+import { Box, Text } from "@chakra-ui/react";
 
 const Erro = () => (
-	<C.Error>
-		<h1>404</h1>
-		<h2>Página não localizada</h2>
-		<Link to='/'>Voltar para página principal</Link>
-	</C.Error>
+	<Box
+		display="flex"
+		alignItems="center"
+		justifyContent="center"
+		flexDirection="column"
+	>
+		<Text
+			fontSize="130px"
+			textAlign="center"
+			pt="3rem"
+		>
+			404
+		</Text>
+		<Text
+			fontSize="50px"
+		>
+			Página não localizada
+		</Text>
+		<Box
+			color="#f31734"
+			pt="2rem"
+			fontSize="30px"
+		>
+			<Link to='/'>
+				Voltar para página principal
+			</Link>
+		</Box>
+	</Box>
 );
 
 export default Erro;

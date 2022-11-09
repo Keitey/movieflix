@@ -1,8 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import React, { useEffect } from "react";
-import * as C from "./styles";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
+import { Box } from "@chakra-ui/react";
 
 const Details: React.FC = () => {
 	const { id } = useParams();
@@ -14,7 +14,7 @@ const Details: React.FC = () => {
 	}, [store.fetchShelf]);
 
 	return (
-		<C.Container>
+		<Box>
 			{store.fetchShelf.loader.isLoading ? (
 				<span>carregando...</span>
 			) : !store.fetchShelf.hasModel ? (
@@ -43,7 +43,7 @@ const Details: React.FC = () => {
 					</div>
 				</div>
 			)}
-		</C.Container>
+		</Box>
 	);
 };
 
