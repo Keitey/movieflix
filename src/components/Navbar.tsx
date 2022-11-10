@@ -57,6 +57,7 @@ const Navbar: React.FC = () => {
 					borderColor="#f31734"
 					focusBorderColor="#f31734"
 					borderRadius="8px"
+					w="324px"
 				/>
 				<IconButton
 					color="#fff"
