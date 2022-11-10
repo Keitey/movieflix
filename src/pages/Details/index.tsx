@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import React, { useEffect } from "react";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
-import { Box, Text, Image, ButtonGroup, Button } from "@chakra-ui/react";
+import { Box, Text, Image, ButtonGroup, Button, Flex } from "@chakra-ui/react";
 
 const Details: React.FC = () => {
 	const { id } = useParams();
@@ -15,19 +15,36 @@ const Details: React.FC = () => {
 
 	return (
 		<Box
-			p="3"
+			display="flex"
 		>
 			{store.fetchShelf.loader.isLoading ? (
-				<Text>
+				<Text
+					textAlign="center"
+				>
 					carregando...
 				</Text>
 			) : !store.fetchShelf.hasModel ? (
-				<Text>Movie not found 😥</Text>
+				<Text
+					textAlign="center"
+				>
+					Movie not found 😥
+				</Text>
 			) : (
-				<Box
+				<Flex
+					w="100%"
+					p={{
+						base: 4,
+						md: 14,
+					}}
+					direction={{
+						base: "column",
+						md: "row",
+					}}
 					display="flex"
 					alignItems="center"
 					justifyContent="center"
+					gap="3rem"
+					m="1rem 3rem"
 				>
 					<Image
 						boxSize="440px"
@@ -35,16 +52,10 @@ const Details: React.FC = () => {
 						src={`${image_path}${store.fetchShelf.fetchedModel.poster_path}`}
 						alt={store.fetchShelf.fetchedModel.title}
 					/>
-					<Box
-						display="flex"
-						flexDirection="column"
-						alignItems="flex-start"
-						marginLeft="4rem"
-						maxWidth="50%"
-					>
+					<Box>
 						<Text
 							fontSize="30px"
-							pb="2rem"
+							pb="1rem"
 						>
 							{store.fetchShelf.fetchedModel.title}
 						</Text>
@@ -87,7 +98,7 @@ const Details: React.FC = () => {
 							</a>
 						</ButtonGroup>
 					</Box>
-				</Box>
+				</Flex>
 			)}
 		</Box>
 	);

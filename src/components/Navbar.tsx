@@ -22,8 +22,13 @@ const Navbar: React.FC = () => {
 	return (
 		<Box
 			display="flex"
-			justifyContent="space-around"
+			justifyContent={{
+				base: "center",
+				md: "space-around",
+			}}
 			p="0.8rem 1rem"
+			w="100%"
+			flexWrap="wrap"
 		>
 			<Link to="/">
 				<Text
@@ -44,9 +49,6 @@ const Navbar: React.FC = () => {
 				p="9.5"
 			>
 				<Input
-					type="search"
-					name="movie"
-					id="movie"
 					placeholder="Buscar filme..."
 					onChange={handleSubmit}
 					value={search}
