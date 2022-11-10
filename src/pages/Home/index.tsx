@@ -1,7 +1,7 @@
 import React,{ useEffect } from "react";
 import { Link } from "react-router-dom";
-import { GridItem, Grid, Text, Box, Image } from "@chakra-ui/react";
-// import { Circles } from "react-loader-spinner";
+import { GridItem, Grid, Text, Box, Image, Flex } from "@chakra-ui/react";
+import { Circles } from "react-loader-spinner";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
 
@@ -13,13 +13,17 @@ const Home: React.FC = () => {
 		store.moviesShelf.fetchPage(0);
 	}, [store]);
 
-	// if (store.moviesShelf.items.length === 0) {
-	// 	return (
-	// 		<div className="loading">
-	// 			<Circles color="#f31734" />
-	// 		</div>
-	// 	);
-	// }
+	if (store.moviesShelf.items.length === 0) {
+		return (
+			<Flex
+				m="auto"
+				align="center"
+				justify="center"
+			>
+				<Circles color="#f31734" />
+			</Flex>
+		);
+	}
 
 	return (
 		<Box>

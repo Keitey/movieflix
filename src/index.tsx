@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Search from "./pages/Search";
 import Erro from "./pages/Erro";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Header/Header";
 import React from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
