@@ -42,7 +42,8 @@ const Home: React.FC = () => {
 						<Link to={`/details/${movie.id}`}>
 							<Image
 								boxSize="400px"
-								borderRadius="5px"
+								rounded="11%"
+								pb="1.3rem"
 								src={`${image_path}${movie.poster_path}`}
 								alt={movie.title}
 							/>
