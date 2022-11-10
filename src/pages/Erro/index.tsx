@@ -18,13 +18,14 @@ const Erro = () => (
 		</Text>
 		<Text
 			fontSize="50px"
+			textAlign="center"
 		>
 			Página não localizada
 		</Text>
 		<Box
 			color="#f31734"
 			pt="2rem"
-			fontSize="30px"
+			fontSize="20px"
 		>
 			<Link to='/'>
 				Voltar para página principal

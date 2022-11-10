@@ -22,7 +22,7 @@ const Home: React.FC = () => {
 	// }
 
 	return (
-		<Box >
+		<Box>
 			<Text
 				textAlign="center"
 				p="2rem"
