@@ -1,8 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import React,{ useState } from "react";
-import { Box, Text, Input, IconButton } from "@chakra-ui/react";
-import { RiMovie2Fill } from "react-icons/ri";
-import { GoSearch } from "react-icons/go";
+import { Box, Input, Flex } from "@chakra-ui/react";
+import TextHeader from "../HeaderText";
 
 const Navbar: React.FC = () => {
 	const [search, setSearch] = useState("");
@@ -20,28 +19,16 @@ const Navbar: React.FC = () => {
 	};
 
 	return (
-		<Box
-			display="flex"
+		<Flex
 			justifyContent={{
 				base: "center",
 				md: "space-around",
 			}}
 			p="0.8rem 1rem"
-			w="100%"
 			flexWrap="wrap"
 		>
 			<Link to="/">
-				<Text
-					display="flex"
-					alignItems="center"
-					justifyContent="center"
-					color="#f31734"
-					fontSize="4xl"
-					as="b"
-				>
-					<RiMovie2Fill size={40} />
-					Movie Flix
-				</Text>
+				<TextHeader />
 			</Link>
 			<Box
 				display="flex"
@@ -52,27 +39,11 @@ const Navbar: React.FC = () => {
 					placeholder="Buscar filme..."
 					onChange={handleSubmit}
 					value={search}
-					border="1px solid"
-					isInvalid
 					borderColor="#f31734"
-					focusBorderColor="#f31734"
-					borderRadius="8px"
-					w="280px"
-				/>
-				<IconButton
-					color="#fff"
-					css={{
-						":hover":{
-							background: "#fff",
-							color: "#f31734",
-						},
-					}}
-					background="#f31734"
-					icon={<GoSearch />}
-					aria-label=""
+					isInvalid
 				/>
 			</Box>
-		</Box>
+		</Flex>
 	);
 };
 

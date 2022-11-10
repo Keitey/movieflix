@@ -2,7 +2,8 @@ import { useParams, Link } from "react-router-dom";
 import React, { useEffect } from "react";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
-import { Box, Text, Image, ButtonGroup, Button, Flex } from "@chakra-ui/react";
+import { Box, Text, Image, ButtonGroup, Flex } from "@chakra-ui/react";
+import StyleButton from "../../components/Button";
 
 const Details: React.FC = () => {
 	const { id } = useParams();
@@ -31,7 +32,6 @@ const Details: React.FC = () => {
 				</Text>
 			) : (
 				<Flex
-					w="100%"
 					p={{
 						base: 4,
 						md: 14,
@@ -40,9 +40,7 @@ const Details: React.FC = () => {
 						base: "column",
 						md: "row",
 					}}
-					display="flex"
-					alignItems="center"
-					justifyContent="center"
+					align="center"
 					gap="3rem"
 					m="1rem 3rem"
 				>
@@ -70,31 +68,13 @@ const Details: React.FC = () => {
 							pt="1rem"
 						>
 							<Link to="/">
-								<Button
-									background="#f31734"
-									css={{
-										":hover":{
-											background: "#930e1f",
-										},
-									}}
-								>
-									Voltar
-								</Button>
+								<StyleButton text="Voltar" />
 							</Link>
 							<a
 								target="blank"
 								href={`https://www.youtube.com/results?search_query=${store.fetchShelf.fetchedModel.title}`}
 							>
-								<Button
-									background="#f31734"
-									css={{
-										":hover":{
-											background: "#930e1f",
-										},
-									}}
-								>
-									Trailer
-								</Button>
+								<StyleButton text="Trailer" />
 							</a>
 						</ButtonGroup>
 					</Box>
