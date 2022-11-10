@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-
-import * as C from "./styles";
-
+import { Grid, Box, Image, Text } from "@chakra-ui/react";
 import { APIKey } from "../../configKey/key";
 
 const Search = () => {
@@ -19,22 +17,48 @@ const Search = () => {
 	},[query]);
 
 	return (
-		<C.Container>
-			<C.MovieList>
-				{movies.length === 0 ? <Link to="/">Filme não localizado.<br />Voltar para a home</Link> : movies.map((movie) => (
-					<C.Movie key={movie.id}>
-						<Link to={`/details/${movie.id}`}>
-							<img
-								src={`${image_path}${movie.poster_path}`}
-								alt={movie.title}
-							/>
+		<Box>
+			<Grid
+				templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+				gap="4rem"
+				m="3rem"
+				textAlign="center"
+			>
+				{movies.length === 0 ?
+					<Box
+						color="#F31734"
+						as="b"
+						pt="4rem"
+						textAlign="center"
+						fontSize="4xl"
+					>
+						<Link to="/">
+							Filme não localizado.<br />Voltar para a home
 						</Link>
-						<span>{movie.title}</span>
-						<span>Média: {movie.vote_average}</span>
-					</C.Movie>
-				))}
-			</C.MovieList>
-		</C.Container>
+					</Box>
+					: movies.map((movie) => (
+						<Box key={movie.id}>
+							<Link to={`/details/${movie.id}`}>
+								<Image
+									boxSize="400px"
+									borderRadius="5px"
+									src={`${image_path}${movie.poster_path}`}
+									alt={movie.title}
+									pb="1.3rem"
+								/>
+							</Link>
+							<Text
+								as="b"
+							>
+								{movie.title}
+							</Text>
+							<Text>
+								Média: {movie.vote_average}
+							</Text>
+						</Box>
+					))}
+			</Grid>
+		</Box>
 	);
 };
 
