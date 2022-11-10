@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import React, { useEffect } from "react";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
-import { Box } from "@chakra-ui/react";
+import { Box, Text, Image, ButtonGroup, Button } from "@chakra-ui/react";
 
 const Details: React.FC = () => {
 	const { id } = useParams();
@@ -14,34 +14,80 @@ const Details: React.FC = () => {
 	}, [store.fetchShelf]);
 
 	return (
-		<Box>
+		<Box
+			p="3"
+		>
 			{store.fetchShelf.loader.isLoading ? (
-				<span>carregando...</span>
+				<Text>
+					carregando...
+				</Text>
 			) : !store.fetchShelf.hasModel ? (
-				<span>Movie not found 😥</span>
+				<Text>Movie not found 😥</Text>
 			) : (
-				<div className="movie">
-					<img
+				<Box
+					display="flex"
+					alignItems="center"
+					justifyContent="center"
+				>
+					<Image
+						boxSize="440px"
+						borderRadius="1rem"
 						src={`${image_path}${store.fetchShelf.fetchedModel.poster_path}`}
 						alt={store.fetchShelf.fetchedModel.title}
 					/>
-					<div className="details">
-						<h2>{store.fetchShelf.fetchedModel.title}</h2>
-						<span>Sinopse: {store.fetchShelf.fetchedModel.overview}</span>
-						<span className="release">Data de Lançamento: {store.fetchShelf.fetchedModel.release_date}</span>
-						<div className="buttons">
+					<Box
+						display="flex"
+						flexDirection="column"
+						alignItems="flex-start"
+						marginLeft="4rem"
+						maxWidth="50%"
+					>
+						<Text
+							fontSize="30px"
+							pb="2rem"
+						>
+							{store.fetchShelf.fetchedModel.title}
+						</Text>
+						<Text
+							textAlign="justify"
+							lineHeight="160%"
+						>
+							Sinopse: {store.fetchShelf.fetchedModel.overview}
+						</Text>
+						<Text className="release">Data de Lançamento: {store.fetchShelf.fetchedModel.release_date}</Text>
+						<ButtonGroup
+							pt="1rem"
+						>
 							<Link to="/">
-								<button>Voltar</button>
+								<Button
+									background="#f31734"
+									css={{
+										":hover":{
+											background: "#930e1f",
+										},
+									}}
+								>
+									Voltar
+								</Button>
 							</Link>
 							<a
 								target="blank"
 								href={`https://www.youtube.com/results?search_query=${store.fetchShelf.fetchedModel.title}`}
 							>
-								<button>Trailer</button>
+								<Button
+									background="#f31734"
+									css={{
+										":hover":{
+											background: "#930e1f",
+										},
+									}}
+								>
+									Trailer
+								</Button>
 							</a>
-						</div>
-					</div>
-				</div>
+						</ButtonGroup>
+					</Box>
+				</Box>
 			)}
 		</Box>
 	);
