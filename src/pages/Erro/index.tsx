@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Flex, Text, Box } from "@chakra-ui/react";
 
 const Erro = () => (
-	<Box
-		display="flex"
+	<Flex
 		alignItems="center"
 		justifyContent="center"
 		flexDirection="column"
@@ -31,7 +30,7 @@ const Erro = () => (
 				Voltar para página principal
 			</Link>
 		</Box>
-	</Box>
+	</Flex>
 );
 
 export default Erro;
