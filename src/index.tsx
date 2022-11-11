@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Details from "./pages/Details";
 import Search from "./pages/Search";
 import Erro from "./pages/Erro";
-import Navbar from "./components/Header";
+import Header from "./components/Header";
 import React from "react";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -28,7 +28,7 @@ const theme = extendTheme({
 root.render(
 	<ChakraProvider theme={theme}>
 		<BrowserRouter>
-			<Navbar />
+			<Header />
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/details/:id" element={<Details />} />

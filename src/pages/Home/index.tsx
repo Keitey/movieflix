@@ -13,58 +13,57 @@ const Home: React.FC = () => {
 		store.moviesShelf.fetchPage(0);
 	}, [store]);
 
-	if (store.moviesShelf.items.length === 0) {
-		return (
-			<Flex
-				m="auto"
-				align="center"
-				justify="center"
-			>
-				<Circles color="#f31734" />
-			</Flex>
-		);
-	}
-
 	return (
 		<Box>
 			<Text
 				textAlign="center"
-				p="2rem"
+				p="1rem"
 				fontSize="4xl"
 			>
 				Filmes Populares
 			</Text>
 			<Grid
 				templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
-				gap="4rem"
+				gap="2rem"
 				m="3rem"
 			>
-				{store.moviesShelf.items.map((movie) => (
-					<GridItem
-						key={movie.id}
+				{store.moviesShelf.loader.isLoading ? (
+					<Flex
+						m="auto"
+						align="center"
+						justify="center"
 					>
-						<Link to={`/details/${movie.id}`}>
-							<Image
-								boxSize="400px"
-								rounded="11%"
-								pb="1.3rem"
-								src={`${image_path}${movie.poster_path}`}
-								alt={movie.title}
-							/>
-						</Link>
-						<Text
-							textAlign="center"
-						>
-							{movie.title}
-						</Text>
-						<Text
-							textAlign="center"
-						>
-							Média:
-							{movie.vote_average}
-						</Text>
-					</GridItem>
-				))}
+						<Circles color="#f31734" />
+					</Flex>
+				): (
+					<>
+						{store.moviesShelf.items.map((movie) => (
+							<GridItem
+								key={movie.id}
+							>
+								<Link to={`/details/${movie.id}`}>
+									<Image
+										rounded="11%"
+										src={`${image_path}${movie.poster_path}`}
+										alt={movie.title}
+									/>
+								</Link>
+								<Text
+									pt="1.3rem"
+									textAlign="center"
+								>
+									{movie.title}
+								</Text>
+								<Text
+									textAlign="center"
+								>
+									Média:
+									{movie.vote_average}
+								</Text>
+							</GridItem>
+						))}
+					</>
+				)}
 			</Grid>
 		</Box>
 	);

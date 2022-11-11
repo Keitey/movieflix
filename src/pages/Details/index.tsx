@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
 import { Box, Text, Image, ButtonGroup, Flex } from "@chakra-ui/react";
+import { Circles } from "react-loader-spinner";
 import { ImBackward } from "react-icons/im";
 import { BiMoviePlay } from "react-icons/bi";
 import StyleButton from "../../components/Button";
@@ -21,17 +22,19 @@ const Details: React.FC = () => {
 			display="flex"
 		>
 			{store.fetchShelf.loader.isLoading ? (
-				<Text
-					textAlign="center"
+				<Flex
+					m="auto"
+					align="center"
+					justify="center"
 				>
-					carregando...
-				</Text>
+					<Circles color="#f31734" />
+				</Flex>
 			) : !store.fetchShelf.hasModel ? (
-				<Text
-					textAlign="center"
+				<Flex
+					justify="center"
 				>
 					Movie not found 😥
-				</Text>
+				</Flex>
 			) : (
 				<Flex
 					p={{
@@ -42,9 +45,7 @@ const Details: React.FC = () => {
 						base: "column",
 						md: "row",
 					}}
-					align="center"
 					gap="3rem"
-					m="1rem 3rem"
 				>
 					<Image
 						boxSize="440px"
