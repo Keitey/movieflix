@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import React,{ useState } from "react";
-import { Box, Input, Flex } from "@chakra-ui/react";
+import { Input, Flex } from "@chakra-ui/react";
 import TextHeader from "../HeaderText";
 
 const Navbar: React.FC = () => {
@@ -30,8 +30,7 @@ const Navbar: React.FC = () => {
 			<Link to="/">
 				<TextHeader />
 			</Link>
-			<Box
-				display="flex"
+			<Flex
 				gap="2"
 				p="9.5"
 			>
@@ -41,8 +40,9 @@ const Navbar: React.FC = () => {
 					value={search}
 					borderColor="#f31734"
 					isInvalid
+					w="330px"
 				/>
-			</Box>
+			</Flex>
 		</Flex>
 	);
 };
