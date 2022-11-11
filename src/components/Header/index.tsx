@@ -13,8 +13,9 @@ const Header: React.FC = () => {
 		e.preventDefault();
 		setSearch(e.target.value);
 		setTimeout(() => {
-			// eslint-disable-next-line curly
-			if (!search) return;
+			if (!search) {
+				return;
+			}
 			navigate(`/search?q=${search}`);
 			setSearch("");
 		}, 2000);
