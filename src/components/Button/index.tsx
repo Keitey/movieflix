@@ -3,8 +3,9 @@ import { Button } from "@chakra-ui/react";
 
 interface Ibtn {
 	text: string;
+	icon: JSX.Element;
 }
-const StyleButton=({ text }: Ibtn) => (
+const StyleButton=({ text, icon }: Ibtn) => (
 	<Button
 		background="#f31734"
 		css={{
@@ -13,6 +14,7 @@ const StyleButton=({ text }: Ibtn) => (
 			},
 		}}
 	>
+		{icon}
 		{text}
 	</Button>
 );

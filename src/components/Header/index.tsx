@@ -2,6 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import React,{ useState } from "react";
 import { Input, Flex } from "@chakra-ui/react";
 import TextHeader from "../HeaderText";
+import { GoSearch } from "react-icons/go";
+import StyleButton from "../Button";
 
 const Navbar: React.FC = () => {
 	const [search, setSearch] = useState("");
@@ -40,8 +42,9 @@ const Navbar: React.FC = () => {
 					value={search}
 					borderColor="#f31734"
 					isInvalid
-					w="330px"
+					w="250px"
 				/>
+				<StyleButton text="" icon={<GoSearch />} />
 			</Flex>
 		</Flex>
 	);

@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
 import { Box, Text, Image, ButtonGroup, Flex } from "@chakra-ui/react";
+import { ImBackward } from "react-icons/im";
+import { BiMoviePlay } from "react-icons/bi";
 import StyleButton from "../../components/Button";
 
 const Details: React.FC = () => {
@@ -68,13 +70,13 @@ const Details: React.FC = () => {
 							pt="1rem"
 						>
 							<Link to="/">
-								<StyleButton text="Voltar" />
+								<StyleButton text="Voltar" icon={<ImBackward style={{marginRight: "4px"}} />} />
 							</Link>
 							<a
 								target="blank"
 								href={`https://www.youtube.com/results?search_query=${store.fetchShelf.fetchedModel.title}`}
 							>
-								<StyleButton text="Trailer" />
+								<StyleButton text="Trailer" icon={<BiMoviePlay style={{marginRight: "4px"}} />} />
 							</a>
 						</ButtonGroup>
 					</Box>
