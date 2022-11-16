@@ -5,7 +5,7 @@ import { Store } from "./store";
 import { Box, Text, Image, ButtonGroup, Flex } from "@chakra-ui/react";
 import { Circles } from "react-loader-spinner";
 import { ImBackward } from "react-icons/im";
-import { BiMoviePlay } from "react-icons/bi";
+import { BsPlay } from "react-icons/bs";
 import StyleButton from "../../components/Button";
 
 const Details: React.FC = () => {
@@ -55,18 +55,37 @@ const Details: React.FC = () => {
 					/>
 					<Box>
 						<Text
-							fontSize="30px"
-							pb="1rem"
+							color="#930e1f"
+							as="b"
+							fontSize="2xl"
 						>
-							{store.fetchShelf.fetchedModel.title}
+							Média: {store.fetchShelf.fetchedModel.vote_average.toFixed(1)}
 						</Text>
+						<Flex
+							align="center"
+							gap="1rem"
+						>
+							<Text
+								fontSize="30px"
+								p="1rem 0"
+								as="b"
+							>
+								{store.fetchShelf.fetchedModel.title}
+							</Text>
+							<Text
+								fontSize="33px"
+								color="#999090"
+								as="b"
+							>
+								{store.fetchShelf.fetchedModel.release_date.substring(0,4)}
+							</Text>
+						</Flex>
 						<Text
 							textAlign="justify"
 							lineHeight="160%"
 						>
 							Sinopse: {store.fetchShelf.fetchedModel.overview}
 						</Text>
-						<Text className="release">Data de Lançamento: {store.fetchShelf.fetchedModel.release_date}</Text>
 						<ButtonGroup
 							pt="1rem"
 						>
@@ -77,7 +96,7 @@ const Details: React.FC = () => {
 								target="blank"
 								href={`https://www.youtube.com/results?search_query=${store.fetchShelf.fetchedModel.title}`}
 							>
-								<StyleButton text="Trailer" icon={<BiMoviePlay style={{marginRight: "4px"}} />} />
+								<StyleButton text="Trailer" icon={<BsPlay style={{marginRight: "4px"}} />} />
 							</a>
 						</ButtonGroup>
 					</Box>
