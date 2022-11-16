@@ -58,7 +58,7 @@ const Details: React.FC = () => {
 							as="b"
 							fontSize="2xl"
 						>
-							Média: {store.fetchShelf.fetchedModel.vote_average.toFixed(1)}
+							⭐ {store.fetchShelf.fetchedModel.vote_average.toFixed(1)}
 						</Text>
 						<Flex
 							align="center"
