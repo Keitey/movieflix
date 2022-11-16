@@ -1,10 +1,9 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import React, { useEffect } from "react";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
 import { Box, Text, Image, ButtonGroup, Flex } from "@chakra-ui/react";
 import { Circles } from "react-loader-spinner";
-import { ImBackward } from "react-icons/im";
 import { BsPlay } from "react-icons/bs";
 import StyleButton from "../../components/Button";
 
@@ -89,15 +88,17 @@ const Details: React.FC = () => {
 						<ButtonGroup
 							pt="1rem"
 						>
-							<Link to="/">
-								<StyleButton text="Voltar" icon={<ImBackward style={{marginRight: "4px"}} />} />
-							</Link>
-							<a
-								target="blank"
-								href={`https://www.youtube.com/results?search_query=${store.fetchShelf.fetchedModel.title}`}
+							<Box
+								border="1px solid #ccc"
+								borderRadius="8px"
 							>
-								<StyleButton text="Trailer" icon={<BsPlay style={{marginRight: "4px"}} />} />
-							</a>
+								<a
+									target="blank"
+									href={`https://www.youtube.com/results?search_query=${store.fetchShelf.fetchedModel.title}`}
+								>
+									<StyleButton text="Trailer" icon={<BsPlay style={{marginRight: "4px"}} />} />
+								</a>
+							</Box>
 						</ButtonGroup>
 					</Box>
 				</Flex>
