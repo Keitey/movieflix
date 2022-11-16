@@ -9,6 +9,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
+import "@fontsource/lato/300.css";
 
 const root = ReactDOM.createRoot(
 	document.getElementById("root") as HTMLElement,
@@ -20,6 +21,7 @@ const theme = extendTheme({
 			body: {
 				bg: "#1b1616",
 				color: "#fff",
+				fontFamily: "'Lato', sans-serif",
 			},
 		},
 	},

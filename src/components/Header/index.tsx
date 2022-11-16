@@ -25,7 +25,7 @@ const Header: React.FC = () => {
 		<Flex
 			justifyContent={{
 				base: "center",
-				md: "space-around",
+				md: "space-between",
 			}}
 			p="0.8rem 1rem"
 			flexWrap="wrap"
@@ -41,10 +41,9 @@ const Header: React.FC = () => {
 					placeholder="Buscar filme..."
 					onChange={handleSubmit}
 					value={search}
-					borderColor="#f31734"
-					isInvalid
+					variant="unstyled"
 				/>
-				<StyleButton text="" icon={<GoSearch />} />
+				<StyleButton text="" icon={<GoSearch size={28} />} />
 			</Flex>
 		</Flex>
 	);

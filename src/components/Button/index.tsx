@@ -5,9 +5,10 @@ interface Ibtn {
 	text: string;
 	icon: JSX.Element;
 }
+
 const StyleButton=({ text, icon }: Ibtn) => (
 	<Button
-		background="#f31734"
+		background="transparent"
 		css={{
 			":hover":{
 				background: "#930e1f",

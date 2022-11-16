@@ -1,22 +1,20 @@
 import React from "react";
 import { Flex } from "@chakra-ui/react";
-import { RiMovie2Fill } from "react-icons/ri";
 
 const TextHeader = () => (
 	<Flex
-		color="#f31734"
+		color="#fff"
 		css={{
 			":hover":{
 				color: "#930e1f",
 			},
 		}}
-		fontSize="4xl"
+		fontSize="3xl"
 		as="b"
 		align="center"
 		transition="all 0.5s"
 	>
-		<RiMovie2Fill size={40} />
-		Movie Flix
+		MovieFlix
 	</Flex>
 );
 
