@@ -71,7 +71,7 @@ const Home: React.FC = () => {
 				p="1rem"
 				fontSize="4xl"
 			>
-				Melhores Avaliados
+				Mais Votados
 			</Text>
 			<Grid
 				templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
