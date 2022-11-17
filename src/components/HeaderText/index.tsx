@@ -9,12 +9,12 @@ const TextHeader = () => (
 				color: "#930e1f",
 			},
 		}}
-		fontSize="3xl"
+		fontSize="2xl"
 		as="b"
 		align="center"
 		transition="all 0.5s"
 	>
-		MovieFlix
+		IDEUM
 	</Flex>
 );
 
