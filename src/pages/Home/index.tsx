@@ -15,108 +15,110 @@ const Home: React.FC = () => {
 	}, [store]);
 
 	return (
-		<Box>
-			<Text
-				textAlign="center"
-				p="1rem"
-				fontSize="4xl"
-			>
-				Filmes Populares
-			</Text>
-			<Grid
-				templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
-				gap="2rem"
-				m="3rem"
-			>
-				{store.moviesShelf.loader.isLoading ? (
-					<Flex
-						m="auto"
-						align="center"
-						justify="center"
-					>
-						<Circles color="#f31734" />
-					</Flex>
-				): (
-					<>
-						{store.moviesShelf.items.map((movie) => (
-							<GridItem
-								key={movie.id}
-							>
-								<Link to={`/details/${movie.id}`}>
-									<Image
-										rounded="11%"
-										src={`${image_path}${movie.poster_path}`}
-										alt={movie.title}
-									/>
-								</Link>
-								<Text
-									pt="1.3rem"
-									textAlign="center"
+		<>
+			<Box>
+				<Text
+					textAlign="center"
+					p="1rem"
+					fontSize="4xl"
+				>
+					Filmes Populares
+				</Text>
+				<Grid
+					templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+					gap="2rem"
+					m="3rem"
+				>
+					{store.moviesShelf.loader.isLoading ? (
+						<Flex
+							m="auto"
+							align="center"
+							justify="center"
+						>
+							<Circles color="#f31734" />
+						</Flex>
+					): (
+						<>
+							{store.moviesShelf.items.map((movie) => (
+								<GridItem
+									key={movie.id}
 								>
-									{movie.title}
-								</Text>
-								<Text
-									textAlign="center"
+									<Link to={`/details/${movie.id}`}>
+										<Image
+											rounded="11%"
+											src={`${image_path}${movie.poster_path}`}
+											alt={movie.title}
+										/>
+									</Link>
+									<Text
+										pt="1.3rem"
+										textAlign="center"
+									>
+										{movie.title}
+									</Text>
+									<Text
+										textAlign="center"
+									>
+										Média:
+										{movie.vote_average}
+									</Text>
+								</GridItem>
+							))}
+						</>
+					)}
+				</Grid>
+				<Text
+					textAlign="center"
+					p="1rem"
+					fontSize="4xl"
+				>
+					Mais Votados
+				</Text>
+				<Grid
+					templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+					gap="2rem"
+					m="3rem"
+				>
+					{store.topShelf.loader.isLoading ? (
+						<Flex
+							m="auto"
+							align="center"
+							justify="center"
+						>
+							<Circles color="#f31734" />
+						</Flex>
+					): (
+						<>
+							{store.topShelf.items.map((top) => (
+								<GridItem
+									key={top.id}
 								>
-									Média:
-									{movie.vote_average}
-								</Text>
-							</GridItem>
-						))}
-					</>
-				)}
-			</Grid>
-			<Text
-				textAlign="center"
-				p="1rem"
-				fontSize="4xl"
-			>
-				Mais Votados
-			</Text>
-			<Grid
-				templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
-				gap="2rem"
-				m="3rem"
-			>
-				{store.topShelf.loader.isLoading ? (
-					<Flex
-						m="auto"
-						align="center"
-						justify="center"
-					>
-						<Circles color="#f31734" />
-					</Flex>
-				): (
-					<>
-						{store.topShelf.items.map((top) => (
-							<GridItem
-								key={top.id}
-							>
-								<Link to={`/details/${top.id}`}>
-									<Image
-										rounded="11%"
-										src={`${image_path}${top.poster_path}`}
-										alt={top.title}
-									/>
-								</Link>
-								<Text
-									pt="1.3rem"
-									textAlign="center"
-								>
-									{top.title}
-								</Text>
-								<Text
-									textAlign="center"
-								>
-									Média:
-									{top.vote_average}
-								</Text>
-							</GridItem>
-						))}
-					</>
-				)}
-			</Grid>
-		</Box>
+									<Link to={`/details/${top.id}`}>
+										<Image
+											rounded="11%"
+											src={`${image_path}${top.poster_path}`}
+											alt={top.title}
+										/>
+									</Link>
+									<Text
+										pt="1.3rem"
+										textAlign="center"
+									>
+										{top.title}
+									</Text>
+									<Text
+										textAlign="center"
+									>
+										Média:
+										{top.vote_average}
+									</Text>
+								</GridItem>
+							))}
+						</>
+					)}
+				</Grid>
+			</Box>
+		</>
 	);
 };
 
