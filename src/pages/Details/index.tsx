@@ -39,13 +39,13 @@ const Details: React.FC = () => {
 				<Flex
 					p={{
 						base: 4,
-						md: 14,
+						md: 20,
 					}}
 					direction={{
 						base: "column",
 						md: "row",
 					}}
-					gap="3rem"
+					gap="2.2rem"
 				>
 					<Box>
 						<Text
@@ -78,13 +78,15 @@ const Details: React.FC = () => {
 							<List
 								display="flex"
 								gap="1rem"
+								pb="2rem"
 							>
-								{store.fetchShelf.fetchedModel.genres.map((genre: IGenre)=> <ListItem key={genre.id} textTransform="uppercase" color="#fff" >{genre.name}</ListItem>)}
+								{store.fetchShelf.fetchedModel.genres.map((genre: IGenre)=> <ListItem key={genre.id} textTransform="uppercase">{genre.name}</ListItem>)}
 							</List>
 						</Box>
 						<Text
 							textAlign="justify"
-							lineHeight="160%"
+							maxWidth="550px"
+							pb="2rem"
 						>
 							Sinopse: {store.fetchShelf.fetchedModel.overview}
 						</Text>
@@ -105,7 +107,7 @@ const Details: React.FC = () => {
 						</ButtonGroup>
 					</Box>
 					<Image
-						boxSize="440px"
+						width="390px"
 						src={`${image_path}${store.fetchShelf.fetchedModel.poster_path}`}
 						alt={store.fetchShelf.fetchedModel.title}
 					/>
