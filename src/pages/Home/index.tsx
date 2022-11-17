@@ -11,7 +11,7 @@ const Home: React.FC = () => {
 
 	useEffect(() => {
 		store.moviesShelf.fetchPage(0);
-		store.tvShelf.fetchPage(0);
+		store.topShelf.fetchPage(0);
 	}, [store]);
 
 	return (
@@ -71,14 +71,14 @@ const Home: React.FC = () => {
 				p="1rem"
 				fontSize="4xl"
 			>
-				Séries Populares
+				Melhores Avaliados
 			</Text>
 			<Grid
 				templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
 				gap="2rem"
 				m="3rem"
 			>
-				{store.tvShelf.loader.isLoading ? (
+				{store.topShelf.loader.isLoading ? (
 					<Flex
 						m="auto"
 						align="center"
@@ -88,27 +88,28 @@ const Home: React.FC = () => {
 					</Flex>
 				): (
 					<>
-						{store.tvShelf.items.map((tv) => (
+						{store.topShelf.items.map((top) => (
 							<GridItem
-								key={tv.id}
+								key={top.id}
 							>
-								<Link to={`/details/${tv.id}`}>
+								<Link to={`/details/${top.id}`}>
 									<Image
 										rounded="11%"
-										src={`${image_path}${tv.poster_path}`}
-										alt={tv.title}
+										src={`${image_path}${top.poster_path}`}
+										alt={top.title}
 									/>
 								</Link>
 								<Text
 									pt="1.3rem"
 									textAlign="center"
 								>
-									{tv.name}
+									{top.title}
 								</Text>
 								<Text
 									textAlign="center"
 								>
-									Média: {tv.vote_average}
+									Média:
+									{top.vote_average}
 								</Text>
 							</GridItem>
 						))}

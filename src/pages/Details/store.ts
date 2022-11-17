@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { movieDetails } from "../../types";
+import { IDetails } from "../../types";
 import { getMovieDetail } from "../../api";
 import { FetchModelShelf } from "@startapp/mobx-utils";
 
@@ -11,5 +11,5 @@ export class Store {
 			getMovieDetail,
 		);
 	}
-	public fetchShelf: FetchModelShelf<movieDetails,string | undefined>;
+	public fetchShelf: FetchModelShelf<IDetails,string | undefined>;
 }

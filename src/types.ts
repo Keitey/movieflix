@@ -8,7 +8,7 @@ export interface HomeItems {
 	name: string;
 }
 
-export interface movieDetails {
+export interface IDetails {
 	title: string;
 	overview: string;
 	release_date: string;
