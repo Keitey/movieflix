@@ -16,5 +16,12 @@ export interface movieDetails {
 	image: string;
 	id: string;
 	vote_average: number;
+	genres: IGenre[];
 }
+
+export interface IGenre {
+	name: string;
+	id: string;
+}
+
 

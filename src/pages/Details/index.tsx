@@ -2,10 +2,11 @@ import { useParams } from "react-router-dom";
 import React, { useEffect } from "react";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
-import { Box, Text, Image, ButtonGroup, Flex } from "@chakra-ui/react";
+import { Box, Text, Image, ButtonGroup, Flex, ListItem, List } from "@chakra-ui/react";
 import { Circles } from "react-loader-spinner";
 import { BsPlay } from "react-icons/bs";
 import StyleButton from "../../components/Button";
+import { IGenre } from "../../types";
 
 const Details: React.FC = () => {
 	const { id } = useParams();
@@ -46,12 +47,6 @@ const Details: React.FC = () => {
 					}}
 					gap="3rem"
 				>
-					<Image
-						boxSize="440px"
-						borderRadius="1rem"
-						src={`${image_path}${store.fetchShelf.fetchedModel.poster_path}`}
-						alt={store.fetchShelf.fetchedModel.title}
-					/>
 					<Box>
 						<Text
 							color="#930e1f"
@@ -79,6 +74,14 @@ const Details: React.FC = () => {
 								{store.fetchShelf.fetchedModel.release_date.substring(0,4)}
 							</Text>
 						</Flex>
+						<Box>
+							<List
+								display="flex"
+								gap="1rem"
+							>
+								{store.fetchShelf.fetchedModel.genres.map((genre: IGenre)=> <ListItem key={genre.id} textTransform="uppercase" color="#fff" >{genre.name}</ListItem>)}
+							</List>
+						</Box>
 						<Text
 							textAlign="justify"
 							lineHeight="160%"
@@ -96,11 +99,16 @@ const Details: React.FC = () => {
 									target="blank"
 									href={`https://www.youtube.com/results?search_query=${store.fetchShelf.fetchedModel.title}`}
 								>
-									<StyleButton text="Trailer" icon={<BsPlay style={{marginRight: "4px"}} />} />
+									<StyleButton text="TRAILER" icon={<BsPlay style={{marginRight: "4px"}} />} />
 								</a>
 							</Box>
 						</ButtonGroup>
 					</Box>
+					<Image
+						boxSize="440px"
+						src={`${image_path}${store.fetchShelf.fetchedModel.poster_path}`}
+						alt={store.fetchShelf.fetchedModel.title}
+					/>
 				</Flex>
 			)}
 		</Box>
