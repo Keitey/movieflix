@@ -14,7 +14,7 @@ const TextHeader = () => (
 		align="center"
 		transition="all 0.5s"
 	>
-		IDEUM
+		<h1>IDEUM</h1>
 	</Flex>
 );
 
