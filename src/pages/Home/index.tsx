@@ -11,6 +11,7 @@ const Home: React.FC = () => {
 
 	useEffect(() => {
 		store.moviesShelf.fetchPage(0);
+		store.tvShelf.fetchPage(0);
 	}, [store]);
 
 	return (
@@ -59,6 +60,55 @@ const Home: React.FC = () => {
 								>
 									Média:
 									{movie.vote_average}
+								</Text>
+							</GridItem>
+						))}
+					</>
+				)}
+			</Grid>
+			<Text
+				textAlign="center"
+				p="1rem"
+				fontSize="4xl"
+			>
+				Séries Populares
+			</Text>
+			<Grid
+				templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+				gap="2rem"
+				m="3rem"
+			>
+				{store.tvShelf.loader.isLoading ? (
+					<Flex
+						m="auto"
+						align="center"
+						justify="center"
+					>
+						<Circles color="#f31734" />
+					</Flex>
+				): (
+					<>
+						{store.tvShelf.items.map((tv) => (
+							<GridItem
+								key={tv.id}
+							>
+								<Link to={`/details/${tv.id}`}>
+									<Image
+										rounded="11%"
+										src={`${image_path}${tv.poster_path}`}
+										alt={tv.title}
+									/>
+								</Link>
+								<Text
+									pt="1.3rem"
+									textAlign="center"
+								>
+									{tv.name}
+								</Text>
+								<Text
+									textAlign="center"
+								>
+									Média: {tv.vote_average}
 								</Text>
 							</GridItem>
 						))}

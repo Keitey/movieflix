@@ -5,6 +5,7 @@ export interface HomeItems {
 	title: string;
 	vote_average: number;
 	image: string;
+	name: string;
 }
 
 export interface movieDetails {
@@ -23,5 +24,3 @@ export interface IGenre {
 	name: string;
 	id: string;
 }
-
-

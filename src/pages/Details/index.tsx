@@ -24,7 +24,6 @@ const Details: React.FC = () => {
 			{store.fetchShelf.loader.isLoading ? (
 				<Flex
 					m="auto"
-					align="center"
 					justify="center"
 				>
 					<Circles color="#f31734" />
