@@ -1,9 +1,11 @@
 import React,{ useEffect } from "react";
 import { Link } from "react-router-dom";
-import { GridItem, Grid, Text, Box, Image, Flex } from "@chakra-ui/react";
+import { Text, Box, Image, Flex } from "@chakra-ui/react";
 import { Circles } from "react-loader-spinner";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 const Home: React.FC = () => {
 	const store = useLocalObservable(() => new Store());
@@ -13,6 +15,12 @@ const Home: React.FC = () => {
 		store.moviesShelf.fetchPage(0);
 		store.topShelf.fetchPage(0);
 	}, [store]);
+
+	const responsive = {
+		0: {items: 1},
+		568: {items: 2},
+		1024: {items: 4},
+	};
 
 	return (
 		<>
@@ -24,10 +32,8 @@ const Home: React.FC = () => {
 				>
 					Filmes Populares
 				</Text>
-				<Grid
-					templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
-					gap="2rem"
-					m="3rem"
+				<Flex
+					m="2rem"
 				>
 					{store.moviesShelf.loader.isLoading ? (
 						<Flex
@@ -39,34 +45,38 @@ const Home: React.FC = () => {
 						</Flex>
 					): (
 						<>
-							{store.moviesShelf.items.map((movie) => (
-								<GridItem
-									key={movie.id}
-								>
-									<Link to={`/details/${movie.id}`}>
-										<Image
-											rounded="11%"
-											src={`${image_path}${movie.poster_path}`}
-											alt={movie.title}
-										/>
-									</Link>
-									<Text
-										pt="1.3rem"
-										textAlign="center"
+							<AliceCarousel
+								responsive={responsive}
+							>
+								{store.moviesShelf.items.map((movie) => (
+									<Box
+										key={movie.id}
+										p="1rem"
 									>
-										{movie.title}
-									</Text>
-									<Text
-										textAlign="center"
-									>
-										Média:
-										{movie.vote_average}
-									</Text>
-								</GridItem>
-							))}
+										<Link to={`/details/${movie.id}`}>
+											<Image
+												src={`${image_path}${movie.poster_path}`}
+												alt={movie.title}
+											/>
+										</Link>
+										<Text
+											pt="1.3rem"
+											textAlign="center"
+										>
+											{movie.title}
+										</Text>
+										<Text
+											textAlign="center"
+										>
+											Média:
+											{movie.vote_average}
+										</Text>
+									</Box>
+								))}
+							</AliceCarousel>
 						</>
 					)}
-				</Grid>
+				</Flex>
 				<Text
 					textAlign="center"
 					p="1rem"
@@ -74,10 +84,8 @@ const Home: React.FC = () => {
 				>
 					Mais Votados
 				</Text>
-				<Grid
-					templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
-					gap="2rem"
-					m="3rem"
+				<Flex
+					m="2rem"
 				>
 					{store.topShelf.loader.isLoading ? (
 						<Flex
@@ -89,34 +97,38 @@ const Home: React.FC = () => {
 						</Flex>
 					): (
 						<>
-							{store.topShelf.items.map((top) => (
-								<GridItem
-									key={top.id}
-								>
-									<Link to={`/details/${top.id}`}>
-										<Image
-											rounded="11%"
-											src={`${image_path}${top.poster_path}`}
-											alt={top.title}
-										/>
-									</Link>
-									<Text
-										pt="1.3rem"
-										textAlign="center"
+							<AliceCarousel
+								responsive={responsive}
+							>
+								{store.topShelf.items.map((top) => (
+									<Box
+										key={top.id}
+										p="1rem"
 									>
-										{top.title}
-									</Text>
-									<Text
-										textAlign="center"
-									>
-										Média:
-										{top.vote_average}
-									</Text>
-								</GridItem>
-							))}
+										<Link to={`/details/${top.id}`}>
+											<Image
+												src={`${image_path}${top.poster_path}`}
+												alt={top.title}
+											/>
+										</Link>
+										<Text
+											pt="1.3rem"
+											textAlign="center"
+										>
+											{top.title}
+										</Text>
+										<Text
+											textAlign="center"
+										>
+											Média:
+											{top.vote_average}
+										</Text>
+									</Box>
+								))}
+							</AliceCarousel>
 						</>
 					)}
-				</Grid>
+				</Flex>
 			</Box>
 		</>
 	);

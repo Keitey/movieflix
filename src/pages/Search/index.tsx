@@ -40,8 +40,6 @@ const Search = () => {
 						<Box key={movie.id}>
 							<Link to={`/details/${movie.id}`}>
 								<Image
-									boxSize="400px"
-									rounded="11%"
 									src={`${image_path}${movie.poster_path}`}
 									alt={movie.title}
 									pb="1.3rem"
