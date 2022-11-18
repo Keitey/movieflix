@@ -74,8 +74,7 @@ const Home: React.FC = () => {
 										<Text
 											textAlign="center"
 										>
-											Média:
-											{movie.vote_average}
+											Média: {movie.vote_average} ⭐
 										</Text>
 									</Box>
 								))}
@@ -132,8 +131,7 @@ const Home: React.FC = () => {
 										<Text
 											textAlign="center"
 										>
-											Média:
-											{top.vote_average}
+											Média: {top.vote_average} ⭐
 										</Text>
 									</Box>
 								))}
