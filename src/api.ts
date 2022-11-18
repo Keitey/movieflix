@@ -1,7 +1,7 @@
 import { APIKey } from "./configKey/key";
 
 export const getMovies = async () => {
-	const url = await fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${APIKey}&language=pt-BR`);
+	const url = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${APIKey}&language=pt-BR`);
 	const response = await url.json();
 	return response.results;
 };

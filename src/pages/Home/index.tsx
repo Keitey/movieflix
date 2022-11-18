@@ -19,7 +19,7 @@ const Home: React.FC = () => {
 	const responsive = {
 		0: {items: 1},
 		568: {items: 2},
-		1024: {items: 4},
+		1024: {items: 5},
 	};
 
 	return (
@@ -57,6 +57,12 @@ const Home: React.FC = () => {
 											<Image
 												src={`${image_path}${movie.poster_path}`}
 												alt={movie.title}
+												transition="1s"
+												css={{
+													":hover": {
+														transform: "scale(1.1)",
+													},
+												}}
 											/>
 										</Link>
 										<Text
@@ -109,6 +115,12 @@ const Home: React.FC = () => {
 											<Image
 												src={`${image_path}${top.poster_path}`}
 												alt={top.title}
+												transition="1s"
+												css={{
+													":hover": {
+														transform: "scale(1.1)",
+													},
+												}}
 											/>
 										</Link>
 										<Text

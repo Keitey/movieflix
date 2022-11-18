@@ -29,6 +29,7 @@ const Header: React.FC = () => {
 			}}
 			p="0.8rem 1rem"
 			flexWrap="wrap"
+			align="center"
 		>
 			<Link to="/">
 				<TextHeader />
