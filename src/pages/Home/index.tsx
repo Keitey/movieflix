@@ -65,6 +65,7 @@ const Home: React.FC = () => {
 														transform: "scale(1.1)",
 													},
 												}}
+												boxSize="380px"
 											/>
 										</Link>
 										<Text
@@ -124,6 +125,7 @@ const Home: React.FC = () => {
 														transform: "scale(1.1)",
 													},
 												}}
+												boxSize="380px"
 											/>
 										</Link>
 										<Text
