@@ -10,17 +10,16 @@ import "react-alice-carousel/lib/alice-carousel.css";
 const Home: React.FC = () => {
 	const store = useLocalObservable(() => new Store());
 	const image_path = "https://image.tmdb.org/t/p/w500";
-
-	useEffect(() => {
-		store.moviesShelf.fetchPage(0);
-		store.topShelf.fetchPage(0);
-	}, [store]);
-
 	const responsive = {
 		0: {items: 1},
 		568: {items: 2},
 		1024: {items: 5},
 	};
+
+	useEffect(() => {
+		store.moviesShelf.fetchPage(0);
+		store.topShelf.fetchPage(0);
+	}, [store]);
 
 	return (
 		<>
@@ -65,7 +64,6 @@ const Home: React.FC = () => {
 											<Image
 												src={`${image_path}${movie.poster_path}`}
 												alt={movie.title}
-												boxSize="300px"
 											/>
 										</Link>
 										<Box
@@ -128,7 +126,6 @@ const Home: React.FC = () => {
 											<Image
 												src={`${image_path}${top.poster_path}`}
 												alt={top.title}
-												boxSize="300px"
 											/>
 										</Link>
 										<Box
