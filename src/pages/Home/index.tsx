@@ -47,6 +47,8 @@ const Home: React.FC = () => {
 						<>
 							<AliceCarousel
 								responsive={responsive}
+								keyboardNavigation
+								disableDotsControls
 							>
 								{store.moviesShelf.items.map((movie) => (
 									<Box
@@ -104,6 +106,8 @@ const Home: React.FC = () => {
 						<>
 							<AliceCarousel
 								responsive={responsive}
+								keyboardNavigation
+								disableDotsControls
 							>
 								{store.topShelf.items.map((top) => (
 									<Box
