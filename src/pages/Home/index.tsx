@@ -67,17 +67,22 @@ const Home: React.FC = () => {
 												}}
 											/>
 										</Link>
-										<Text
-											pt="1.3rem"
-											textAlign="center"
+										<Box
+											background="#361D1C"
+											height="100px"
 										>
-											{movie.title}
-										</Text>
-										<Text
-											textAlign="center"
-										>
-											Média: {movie.vote_average} ⭐
-										</Text>
+											<Text
+												pt="1.3rem"
+												textAlign="center"
+											>
+												{movie.title}
+											</Text>
+											<Text
+												textAlign="center"
+											>
+												Média: {movie.vote_average} ⭐
+											</Text>
+										</Box>
 									</Box>
 								))}
 							</AliceCarousel>
@@ -126,17 +131,22 @@ const Home: React.FC = () => {
 												}}
 											/>
 										</Link>
-										<Text
-											pt="1.3rem"
-											textAlign="center"
+										<Box
+											background="#361D1C"
+											height="100px"
 										>
-											{top.title}
-										</Text>
-										<Text
-											textAlign="center"
-										>
-											Média: {top.vote_average} ⭐
-										</Text>
+											<Text
+												pt="1.3rem"
+												textAlign="center"
+											>
+												{top.title}
+											</Text>
+											<Text
+												textAlign="center"
+											>
+												Média: {top.vote_average} ⭐
+											</Text>
+										</Box>
 									</Box>
 								))}
 							</AliceCarousel>
