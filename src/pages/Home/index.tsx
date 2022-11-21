@@ -65,21 +65,20 @@ const Home: React.FC = () => {
 											<Image
 												src={`${image_path}${movie.poster_path}`}
 												alt={movie.title}
+												boxSize="300px"
 											/>
 										</Link>
 										<Box
 											background="#361D1C"
 											height="100px"
+											textAlign="center"
 										>
 											<Text
 												pt="1.3rem"
-												textAlign="center"
 											>
 												{movie.title}
 											</Text>
-											<Text
-												textAlign="center"
-											>
+											<Text>
 												Média: {movie.vote_average} ⭐
 											</Text>
 										</Box>
@@ -129,21 +128,20 @@ const Home: React.FC = () => {
 											<Image
 												src={`${image_path}${top.poster_path}`}
 												alt={top.title}
+												boxSize="300px"
 											/>
 										</Link>
 										<Box
 											background="#361D1C"
 											height="100px"
+											textAlign="center"
 										>
 											<Text
 												pt="1.3rem"
-												textAlign="center"
 											>
 												{top.title}
 											</Text>
-											<Text
-												textAlign="center"
-											>
+											<Text>
 												Média: {top.vote_average} ⭐
 											</Text>
 										</Box>
