@@ -9,6 +9,7 @@ interface Ibtn {
 const StyleButton=({ text, icon }: Ibtn) => (
 	<Button
 		background="transparent"
+		borderRadius="0"
 		css={{
 			":hover":{
 				background: "#930e1f",

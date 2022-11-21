@@ -95,7 +95,6 @@ const Details: React.FC = () => {
 							>
 								<Box
 									border="1px solid #ccc"
-									borderRadius="8px"
 								>
 									<a
 										target="blank"
