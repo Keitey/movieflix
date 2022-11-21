@@ -54,17 +54,17 @@ const Home: React.FC = () => {
 									<Box
 										key={movie.id}
 										p="1rem"
+										transition="1s"
+										css={{
+											":hover": {
+												transform: "scale(1.1)",
+											},
+										}}
 									>
 										<Link to={`/details/${movie.id}`}>
 											<Image
 												src={`${image_path}${movie.poster_path}`}
 												alt={movie.title}
-												transition="1s"
-												css={{
-													":hover": {
-														transform: "scale(1.1)",
-													},
-												}}
 											/>
 										</Link>
 										<Box
@@ -118,17 +118,17 @@ const Home: React.FC = () => {
 									<Box
 										key={top.id}
 										p="1rem"
+										transition="1s"
+										css={{
+											":hover": {
+												transform: "scale(1.1)",
+											},
+										}}
 									>
 										<Link to={`/details/${top.id}`}>
 											<Image
 												src={`${image_path}${top.poster_path}`}
 												alt={top.title}
-												transition="1s"
-												css={{
-													":hover": {
-														transform: "scale(1.1)",
-													},
-												}}
 											/>
 										</Link>
 										<Box
