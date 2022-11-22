@@ -1,11 +1,12 @@
 import React,{ useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Text, Box, Image, Flex, Heading } from "@chakra-ui/react";
+import { Text, Box, Image, Flex, Heading, ButtonGroup, Button } from "@chakra-ui/react";
 import { Circles } from "react-loader-spinner";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import { BsThreeDots } from "react-icons/bs";
 
 const Home: React.FC = () => {
 	const store = useLocalObservable(() => new Store());
@@ -60,6 +61,21 @@ const Home: React.FC = () => {
 					</Text>
 					<Text>Assista milhares de filmes online ou na sua Smart TV, game console, PC, Mac, mobile, tablet e mais. Comece seu teste gratuito hoje.</Text>
 				</Box>
+				<ButtonGroup
+					spacing="1rem"
+					p="0.9rem"
+				>
+					<Button
+						background="#E23A36"
+					>
+						Por R$10,00
+					</Button>
+					<Button
+						background="#513B3C"
+					>
+						<BsThreeDots />
+					</Button>
+				</ButtonGroup>
 			</Flex>
 			<Box>
 				<Text

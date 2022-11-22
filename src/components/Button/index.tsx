@@ -3,7 +3,7 @@ import { Button } from "@chakra-ui/react";
 
 interface Ibtn {
 	text: string;
-	icon: JSX.Element;
+	icon: JSX.Element|string;
 }
 
 const StyleButton=({ text, icon }: Ibtn) => (
