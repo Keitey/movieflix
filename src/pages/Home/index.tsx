@@ -119,11 +119,13 @@ const Home: React.FC = () => {
 											<Image
 												src={`${image_path}${movie.poster_path}`}
 												alt={movie.title}
+												boxSize={300}
 											/>
 										</Link>
 										<Box
 											background="#361D1C"
 											height="100px"
+											maxWidth="300px"
 											textAlign="center"
 										>
 											<Text
@@ -182,11 +184,13 @@ const Home: React.FC = () => {
 											<Image
 												src={`${image_path}${top.poster_path}`}
 												alt={top.title}
+												boxSize={300}
 											/>
 										</Link>
 										<Box
 											background="#361D1C"
 											height="100px"
+											maxWidth="300px"
 											textAlign="center"
 										>
 											<Text
