@@ -48,6 +48,7 @@ const Home: React.FC = () => {
 								responsive={responsive}
 								keyboardNavigation
 								disableDotsControls
+								infinite
 							>
 								{store.moviesShelf.items.map((movie) => (
 									<Box
@@ -110,6 +111,7 @@ const Home: React.FC = () => {
 								responsive={responsive}
 								keyboardNavigation
 								disableDotsControls
+								infinite
 							>
 								{store.topShelf.items.map((top) => (
 									<Box
