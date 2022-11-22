@@ -1,6 +1,6 @@
 import React,{ useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Text, Box, Image, Flex } from "@chakra-ui/react";
+import { Text, Box, Image, Flex, Heading } from "@chakra-ui/react";
 import { Circles } from "react-loader-spinner";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
@@ -31,15 +31,35 @@ const Home: React.FC = () => {
 				justify="center"
 				m="auto"
 				width="80%"
+				flexDirection="column"
 			>
-				<Text
+				<Box
 					background="#fff"
-					color="#000"
-					p="1rem"
 					borderRadius="50%"
+					width="140px"
+					height="140px"
+					display="flex"
+					justifyContent="center"
+					alignItems="center"
 				>
-					MovieFlix
-				</Text>
+					<Heading
+						color="#7e1818"
+						as="h1"
+						fontSize="24px"
+					>
+						MOVIEFLIX
+					</Heading>
+				</Box>
+				<Box
+					textAlign="center"
+					pt="0.9rem"
+					lineHeight="1.7em"
+				>
+					<Text>
+						MovieFlix
+					</Text>
+					<Text>Watch movies online or stream right to your smart TV, game console, PC, Mac, mobile, tablet and more. Start your free trial today.</Text>
+				</Box>
 			</Flex>
 			<Box>
 				<Text

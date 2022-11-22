@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
 
 const TextHeader = () => (
 	<Flex
@@ -9,12 +9,15 @@ const TextHeader = () => (
 				color: "#930e1f",
 			},
 		}}
-		fontSize="2xl"
-		as="b"
 		align="center"
 		transition="all 0.5s"
 	>
-		<h1>IDEUM</h1>
+		<Heading
+			as="h6"
+			fontSize="25px"
+		>
+			IDEUM
+		</Heading>
 	</Flex>
 );
 
