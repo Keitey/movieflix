@@ -23,6 +23,24 @@ const Home: React.FC = () => {
 
 	return (
 		<>
+			<Flex
+				backgroundImage="https://www.themoviedb.org/assets/2/v4/marketing/deadpool-06f2a06d7a418ec887300397b6861383bf1e3b72f604ddd5f75bce170e81dce9.png"
+				backgroundRepeat="no-repeat"
+				height="300px"
+				align="center"
+				justify="center"
+				m="auto"
+				width="80%"
+			>
+				<Text
+					background="#fff"
+					color="#000"
+					p="1rem"
+					borderRadius="50%"
+				>
+					MovieFlix
+				</Text>
+			</Flex>
 			<Box>
 				<Text
 					textAlign="center"
