@@ -58,7 +58,7 @@ const Home: React.FC = () => {
 					<Text>
 						MovieFlix
 					</Text>
-					<Text>Watch movies online or stream right to your smart TV, game console, PC, Mac, mobile, tablet and more. Start your free trial today.</Text>
+					<Text>Assista milhares de filmes online ou na sua Smart TV, game console, PC, Mac, mobile, tablet e mais. Comece seu teste gratuito hoje.</Text>
 				</Box>
 			</Flex>
 			<Box>
