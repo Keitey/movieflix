@@ -57,7 +57,6 @@ const Details: React.FC = () => {
 							</Text>
 							<Flex
 								align="center"
-								gap="1rem"
 							>
 								<Text
 									fontSize="30px"
