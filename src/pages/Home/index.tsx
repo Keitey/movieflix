@@ -67,11 +67,13 @@ const Home: React.FC = () => {
 				>
 					<Button
 						background="#E23A36"
+						borderRadius="2px"
 					>
 						Por R$10,00
 					</Button>
 					<Button
 						background="#513B3C"
+						borderRadius="2px"
 					>
 						<BsThreeDots />
 					</Button>
