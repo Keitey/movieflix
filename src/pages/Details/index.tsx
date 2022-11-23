@@ -7,11 +7,14 @@ import { Circles } from "react-loader-spinner";
 import { BsPlay } from "react-icons/bs";
 import StyleButton from "../../components/Button";
 import { IGenre } from "../../types";
+import UseImageColor from "use-image-color";
 
 const Details: React.FC = () => {
 	const { id } = useParams();
 	const store = useLocalObservable(() => new Store(id));
 	const image_path = "https://image.tmdb.org/t/p/w500";
+	const url = store.fetchShelf.model.value ? `${image_path}${store.fetchShelf.fetchedModel.poster_path}` : "não";
+	const { colors } =	UseImageColor(url, { cors: true, colors: 10});
 
 	useEffect(() => {
 		store.fetchShelf.fetchModel();
@@ -21,6 +24,7 @@ const Details: React.FC = () => {
 		<>
 			<Box
 				display="flex"
+				background={colors ? colors[0]: "#1b1616"}
 			>
 				{store.fetchShelf.loader.isLoading ? (
 					<Flex

@@ -49,6 +49,7 @@
     "react-toastify": "^9.0.8",
     "styled-components": "^5.0.0",
     "typescript": "^4.8.2",
+    "use-image-color": "^0.0.9",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
