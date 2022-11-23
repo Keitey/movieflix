@@ -39,7 +39,7 @@ const Details: React.FC = () => {
 					<Flex
 						p={{
 							base: 4,
-							lg: 112,
+							lg: 20,
 						}}
 						direction={{
 							base: "column",
