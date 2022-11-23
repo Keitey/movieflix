@@ -1,7 +1,7 @@
 import React,{ useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Text, Box, Image, Flex, Heading, ButtonGroup, Button } from "@chakra-ui/react";
-import { Circles } from "react-loader-spinner";
+import { Spinner } from "@chakra-ui/react";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
 import AliceCarousel from "react-alice-carousel";
@@ -96,7 +96,7 @@ const Home: React.FC = () => {
 							align="center"
 							justify="center"
 						>
-							<Circles color="#f31734" />
+							<Spinner color="#f31734" size="xl" />
 						</Flex>
 					): (
 						<>
@@ -161,7 +161,7 @@ const Home: React.FC = () => {
 							align="center"
 							justify="center"
 						>
-							<Circles color="#f31734" />
+							<Spinner color="#f31734" size="xl" />
 						</Flex>
 					): (
 						<>

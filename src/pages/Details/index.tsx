@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
 import { Box, Text, Image, ButtonGroup, Flex, ListItem, List } from "@chakra-ui/react";
-import { Circles } from "react-loader-spinner";
+import { Spinner } from "@chakra-ui/react";
 import { BsPlay } from "react-icons/bs";
 import StyleButton from "../../components/Button";
 import { IGenre } from "../../types";
@@ -31,7 +31,7 @@ const Details: React.FC = () => {
 						m="auto"
 						justify="center"
 					>
-						<Circles color="#f31734" />
+						<Spinner color="#f31734" size="xl" />
 					</Flex>
 				) : !store.fetchShelf.hasModel ? (
 					<Flex
