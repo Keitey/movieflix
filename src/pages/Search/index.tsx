@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Grid, Box, Image, Text } from "@chakra-ui/react";
+import { Grid, Box, Image, Text, Heading } from "@chakra-ui/react";
 import { APIKey } from "../../configKey/key";
 
 const Search = () => {
@@ -10,14 +10,24 @@ const Search = () => {
 	const query = searchParams.get("q");
 	const image_path ="https://image.tmdb.org/t/p/w500/";
 
-	useEffect(() => {
-		fetch(
-			`https://api.themoviedb.org/3/search/movie?api_key=${APIKey}&query=${query}`,
-		).then((response) => response.json()).then((data) => setMovies(data.results));
-	},[query]);
+	const getSearchMovies = async (url: string) =>{
+		const res = await fetch(url);
+		const data = await res.json();
+		setMovies(data.results);
+	};
+
+	useEffect(()=> {
+		const searchWithQuery = `https://api.themoviedb.org/3/search/movie?api_key=${APIKey}&query=${query}`;
+		getSearchMovies(searchWithQuery);
+	}, [query]);
 
 	return (
 		<Box>
+			<Heading
+				textAlign="center"
+			>
+				Resultado para: {query}
+			</Heading>
 			<Grid
 				templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
 				gap="4rem"

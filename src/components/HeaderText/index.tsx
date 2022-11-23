@@ -16,7 +16,7 @@ const TextHeader = () => (
 			as="h6"
 			fontSize="25px"
 		>
-			IDEUM
+			MOVIEFLIX
 		</Heading>
 	</Flex>
 );

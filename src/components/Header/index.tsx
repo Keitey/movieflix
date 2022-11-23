@@ -12,14 +12,15 @@ const Header: React.FC = () => {
 	const handleSubmit = (e: React.ChangeEvent<any>): any => {
 		e.preventDefault();
 		setSearch(e.target.value);
-		setTimeout(() => {
-			if (!search) {
-				return;
-			}
-			navigate(`/search?q=${search}`);
-			setSearch("");
-		}, 2000);
 	};
+
+	setTimeout(() => {
+		if (!search) {
+			return;
+		}
+		navigate(`/search?q=${search}`);
+		setSearch("");
+	}, 2000);
 
 	return (
 		<Flex
@@ -40,9 +41,9 @@ const Header: React.FC = () => {
 			>
 				<Input
 					placeholder="Buscar filme..."
-					onChange={handleSubmit}
 					value={search}
 					variant="unstyled"
+					onChange={handleSubmit}
 				/>
 				<StyleButton text="" icon={<GoSearch size={28} />} />
 			</Flex>
