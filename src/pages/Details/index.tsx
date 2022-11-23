@@ -99,7 +99,7 @@ const Details: React.FC = () => {
 										target="blank"
 										href={`https://www.youtube.com/results?search_query=${store.fetchShelf.fetchedModel.title}`}
 									>
-										<StyleButton text="TRAILER" icon={<BsPlay style={{marginRight: "4px"}} />} />
+										<StyleButton text="TRAILER" icon={<BsPlay style={{marginRight: "4px"}} size={30} />} />
 									</a>
 								</Box>
 							</ButtonGroup>
