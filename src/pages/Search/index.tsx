@@ -24,31 +24,33 @@ const Search = () => {
 	return (
 		<Box
 			bg="#1b1616"
-			h="100%"
+			textAlign="center"
 		>
 			<Heading
 				textAlign="center"
+				size="md"
+				pt="1.3rem"
 			>
 				Resultado para: {query}
 			</Heading>
 			<Grid
 				templateColumns="repeat(auto-fit, minmax(200px, 1fr))"
 				gap="4rem"
-				m="3rem"
-				textAlign="center"
 			>
 				{movies.length === 0 ?
-					<Box
+					<Heading
 						color="#F31734"
-						as="b"
 						pt="4rem"
-						textAlign="center"
-						fontSize="4xl"
 					>
 						<Link to="/">
-							Filme não localizado.<br />Voltar para a home
+							<Heading
+								h="100vh"
+								size="lg"
+							>
+								Filme não localizado.<br />Voltar para a home
+							</Heading>
 						</Link>
-					</Box>
+					</Heading>
 					: movies.map((movie) => (
 						<Box key={movie.id}>
 							<Link to={`/details/${movie.id}`}>

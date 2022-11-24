@@ -21,10 +21,10 @@ const theme = extendTheme({
 			body: {
 				color: "#fff",
 				fontFamily: "'Lato', sans-serif",
-				height: "100vh",
+				height: "100%",
 			},
 			html: {
-				height: "100vh",
+				height: "100%",
 			},
 		},
 	},
