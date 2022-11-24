@@ -101,14 +101,16 @@ const Home: React.FC = () => {
 											background="#361D1C"
 											height="100px"
 											maxWidth="300px"
-											textAlign="center"
 										>
 											<Text
 												pt="1.3rem"
+												textAlign="center"
 											>
 												{movie.title}
 											</Text>
-											<Text>
+											<Text
+												textAlign="center"
+											>
 												Média: {movie.vote_average} ⭐
 											</Text>
 										</Box>
@@ -166,16 +168,17 @@ const Home: React.FC = () => {
 											background="#361D1C"
 											height="100px"
 											maxWidth="300px"
-											textAlign="center"
 										>
 											<Text
 												pt="1.3rem"
 												color="#fff"
+												textAlign="center"
 											>
 												{top.title}
 											</Text>
 											<Text
 												color="#fff"
+												textAlign="center"
 											>
 												Média: {top.vote_average} ⭐
 											</Text>
