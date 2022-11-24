@@ -7,6 +7,7 @@ import { Store } from "./store";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { BsThreeDots } from "react-icons/bs";
+import UseImageColor from "use-image-color";
 
 const Home: React.FC = () => {
 	const store = useLocalObservable(() => new Store());
@@ -22,8 +23,15 @@ const Home: React.FC = () => {
 		store.topShelf.fetchPage(0);
 	}, [store]);
 
+	const { colors } = UseImageColor(
+		store.moviesShelf.items[0] ? (image_path + store.moviesShelf.items[0].poster_path) : "",
+		{ cors: true, colors: 3},
+	);
+
 	return (
-		<>
+		<Box
+			bg={`linear-gradient(transparent 5%, ${colors? colors[0]: "#1b1616"})`}
+		>
 			<Flex
 				backgroundImage="https://www.themoviedb.org/assets/2/v4/marketing/deadpool-06f2a06d7a418ec887300397b6861383bf1e3b72f604ddd5f75bce170e81dce9.png"
 				backgroundRepeat="no-repeat"
@@ -211,7 +219,7 @@ const Home: React.FC = () => {
 					)}
 				</Flex>
 			</Box>
-		</>
+		</Box>
 	);
 };
 
