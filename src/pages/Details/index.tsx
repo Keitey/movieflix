@@ -25,6 +25,7 @@ const Details: React.FC = () => {
 			<Box
 				display="flex"
 				bg={`linear-gradient(transparent 5%, ${colors? colors[0]: "#1b1616"})`}
+				color="#000"
 			>
 				{store.fetchShelf.loader.isLoading ? (
 					<Flex

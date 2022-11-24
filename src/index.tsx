@@ -19,12 +19,12 @@ const theme = extendTheme({
 	styles: {
 		global: {
 			body: {
-				color: "#000",
+				color: "#fff",
 				fontFamily: "'Lato', sans-serif",
-				height: "100%",
+				height: "100vh",
 			},
 			html: {
-				height: "100%",
+				height: "100vh",
 			},
 		},
 	},

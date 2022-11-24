@@ -24,6 +24,7 @@ const Search = () => {
 	return (
 		<Box
 			bg="#1b1616"
+			h="100vh"
 		>
 			<Heading
 				textAlign="center"

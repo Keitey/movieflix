@@ -1,12 +1,11 @@
 import React,{ useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Text, Box, Image, Flex } from "@chakra-ui/react";
+import { Text, Box, Image, Flex, Heading } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/react";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-// import { BsThreeDots } from "react-icons/bs";
 import UseImageColor from "use-image-color";
 
 const Home: React.FC = () => {
@@ -18,11 +17,6 @@ const Home: React.FC = () => {
 		1024: {items: 5},
 	};
 
-	useEffect(() => {
-		store.moviesShelf.fetchPage(0);
-		store.topShelf.fetchPage(0);
-	}, [store]);
-
 	const { colors } = UseImageColor(
 		store.moviesShelf.items[0] ? (backdrop_path + store.moviesShelf.items[0].poster_path) : "",
 		{ cors: true, colors: 3},
@@ -30,10 +24,22 @@ const Home: React.FC = () => {
 
 	const bannerMostPopularMovie = (store.moviesShelf.items[0] ? (backdrop_path + store.moviesShelf.items[0].backdrop_path) : "");
 
+	useEffect(() => {
+		store.moviesShelf.fetchPage(0);
+		store.topShelf.fetchPage(0);
+	}, [store]);
+
 	return (
 		<Box
 			bg={`linear-gradient(transparent 5%, ${colors? colors[0]: "#1b1616"})`}
 		>
+			<Heading
+				color="#000"
+				textAlign="center"
+				p="1rem"
+			>
+				Em destaque
+			</Heading>
 			<Flex
 				align="center"
 				justify="center"
@@ -47,13 +53,13 @@ const Home: React.FC = () => {
 				/>
 			</Flex>
 			<Box>
-				<Text
+				<Heading
 					textAlign="center"
-					p="1rem"
-					fontSize="4xl"
+					as="h1"
+					color="#000"
 				>
 					Filmes Populares
-				</Text>
+				</Heading>
 				<Flex
 					m="2rem"
 				>
@@ -99,13 +105,10 @@ const Home: React.FC = () => {
 										>
 											<Text
 												pt="1.3rem"
-												color="#fff"
 											>
 												{movie.title}
 											</Text>
-											<Text
-												color="#fff"
-											>
+											<Text>
 												Média: {movie.vote_average} ⭐
 											</Text>
 										</Box>
@@ -115,13 +118,13 @@ const Home: React.FC = () => {
 						</>
 					)}
 				</Flex>
-				<Text
+				<Heading
 					textAlign="center"
-					p="1rem"
+					color="#000"
 					fontSize="4xl"
 				>
 					Mais Votados
-				</Text>
+				</Heading>
 				<Flex
 					m="2rem"
 				>
