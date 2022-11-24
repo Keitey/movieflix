@@ -12,9 +12,9 @@ import UseImageColor from "use-image-color";
 const Details: React.FC = () => {
 	const { id } = useParams();
 	const store = useLocalObservable(() => new Store(id));
-	const image_path = "https://image.tmdb.org/t/p/w500";
-	const url = store.fetchShelf.model.value ? `${image_path}${store.fetchShelf.fetchedModel.poster_path}` : "não";
-	const { colors } =	UseImageColor(url, { cors: true, colors: 10});
+	const backdrop_path = "https://image.tmdb.org/t/p/w500";
+	const url = store.fetchShelf.model.value ? `${backdrop_path}${store.fetchShelf.fetchedModel.poster_path}` : "não";
+	const { colors } =	UseImageColor(url, { cors: true, colors: 3});
 
 	useEffect(() => {
 		store.fetchShelf.fetchModel();
@@ -110,7 +110,7 @@ const Details: React.FC = () => {
 						</Box>
 						<Image
 							width="390px"
-							src={`${image_path}${store.fetchShelf.fetchedModel.poster_path}`}
+							src={`${backdrop_path}${store.fetchShelf.fetchedModel.poster_path}`}
 							alt={store.fetchShelf.fetchedModel.title}
 						/>
 					</Flex>

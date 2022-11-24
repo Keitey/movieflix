@@ -46,7 +46,7 @@ const Header: React.FC = () => {
 					variant="unstyled"
 					onChange={handleSubmit}
 				/>
-				<StyleButton text="" icon={<GoSearch size={28} />} />
+				<StyleButton text="" icon={<GoSearch size={28} color="#fff" />} />
 			</Flex>
 		</Flex>
 	);

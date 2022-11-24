@@ -22,7 +22,9 @@ const Search = () => {
 	}, [query]);
 
 	return (
-		<Box>
+		<Box
+			bg="#1b1616"
+		>
 			<Heading
 				textAlign="center"
 			>

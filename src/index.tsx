@@ -19,7 +19,7 @@ const theme = extendTheme({
 	styles: {
 		global: {
 			body: {
-				color: "#fff",
+				color: "#000",
 				fontFamily: "'Lato', sans-serif",
 				height: "100%",
 			},

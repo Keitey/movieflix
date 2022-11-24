@@ -1,17 +1,17 @@
 import React,{ useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Text, Box, Image, Flex, Heading, ButtonGroup, Button } from "@chakra-ui/react";
+import { Text, Box, Image, Flex } from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/react";
 import { observer, useLocalObservable } from "mobx-react-lite";
 import { Store } from "./store";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { BsThreeDots } from "react-icons/bs";
+// import { BsThreeDots } from "react-icons/bs";
 import UseImageColor from "use-image-color";
 
 const Home: React.FC = () => {
 	const store = useLocalObservable(() => new Store());
-	const image_path = "https://image.tmdb.org/t/p/w500";
+	const backdrop_path = "https://image.tmdb.org/t/p/w500";
 	const responsive = {
 		0: {items: 1},
 		568: {items: 2},
@@ -24,68 +24,27 @@ const Home: React.FC = () => {
 	}, [store]);
 
 	const { colors } = UseImageColor(
-		store.moviesShelf.items[0] ? (image_path + store.moviesShelf.items[0].poster_path) : "",
+		store.moviesShelf.items[0] ? (backdrop_path + store.moviesShelf.items[0].poster_path) : "",
 		{ cors: true, colors: 3},
 	);
+
+	const bannerMostPopularMovie = (store.moviesShelf.items[0] ? (backdrop_path + store.moviesShelf.items[0].backdrop_path) : "");
 
 	return (
 		<Box
 			bg={`linear-gradient(transparent 5%, ${colors? colors[0]: "#1b1616"})`}
 		>
 			<Flex
-				backgroundImage="https://www.themoviedb.org/assets/2/v4/marketing/deadpool-06f2a06d7a418ec887300397b6861383bf1e3b72f604ddd5f75bce170e81dce9.png"
-				backgroundRepeat="no-repeat"
-				height="300px"
 				align="center"
 				justify="center"
-				m="auto"
-				width="80%"
-				flexDirection="column"
+				p="1rem"
 			>
-				<Box
-					background="#fff"
-					borderRadius="50%"
-					width="140px"
-					height="140px"
-					display="flex"
-					justifyContent="center"
-					alignItems="center"
-				>
-					<Heading
-						color="#7e1818"
-						as="h1"
-						fontSize="24px"
-					>
-						MOVIEFLIX
-					</Heading>
-				</Box>
-				<Box
-					textAlign="center"
-					pt="0.9rem"
-					lineHeight="1.7em"
-				>
-					<Text>
-						MovieFlix
-					</Text>
-					<Text>Assista milhares de filmes online ou na sua Smart TV, game console, PC, Mac, mobile, tablet e mais. Comece seu teste gratuito hoje.</Text>
-				</Box>
-				<ButtonGroup
-					spacing="1rem"
-					p="0.9rem"
-				>
-					<Button
-						background="#E23A36"
-						borderRadius="2px"
-					>
-						Por R$10,00
-					</Button>
-					<Button
-						background="#513B3C"
-						borderRadius="2px"
-					>
-						<BsThreeDots />
-					</Button>
-				</ButtonGroup>
+				<Image
+					src={bannerMostPopularMovie}
+					alt=""
+					w="80%"
+					h="500px"
+				/>
 			</Flex>
 			<Box>
 				<Text
@@ -127,7 +86,7 @@ const Home: React.FC = () => {
 									>
 										<Link to={`/details/${movie.id}`}>
 											<Image
-												src={`${image_path}${movie.poster_path}`}
+												src={`${backdrop_path}${movie.poster_path}`}
 												alt={movie.title}
 												boxSize={300}
 											/>
@@ -140,10 +99,13 @@ const Home: React.FC = () => {
 										>
 											<Text
 												pt="1.3rem"
+												color="#fff"
 											>
 												{movie.title}
 											</Text>
-											<Text>
+											<Text
+												color="#fff"
+											>
 												Média: {movie.vote_average} ⭐
 											</Text>
 										</Box>
@@ -192,7 +154,7 @@ const Home: React.FC = () => {
 									>
 										<Link to={`/details/${top.id}`}>
 											<Image
-												src={`${image_path}${top.poster_path}`}
+												src={`${backdrop_path}${top.poster_path}`}
 												alt={top.title}
 												boxSize={300}
 											/>
@@ -205,10 +167,13 @@ const Home: React.FC = () => {
 										>
 											<Text
 												pt="1.3rem"
+												color="#fff"
 											>
 												{top.title}
 											</Text>
-											<Text>
+											<Text
+												color="#fff"
+											>
 												Média: {top.vote_average} ⭐
 											</Text>
 										</Box>
