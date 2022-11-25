@@ -34,7 +34,7 @@ const Home: React.FC = () => {
 			bg={colors &&`linear-gradient(to bottom, ${colors[0]}, ${colors[1]}, ${colors[2]})`}
 		>
 			<Heading
-				color="#000"
+				color={colors && colors[1]}
 				textAlign="center"
 				p="1rem"
 			>
@@ -58,7 +58,7 @@ const Home: React.FC = () => {
 				<Heading
 					textAlign="center"
 					as="h1"
-					color="#000"
+					color={colors && colors[4]}
 				>
 					Filmes Populares
 				</Heading>
@@ -124,7 +124,7 @@ const Home: React.FC = () => {
 				</Flex>
 				<Heading
 					textAlign="center"
-					color="#000"
+					color={colors && colors[3]}
 					fontSize="4xl"
 				>
 					Mais Votados
