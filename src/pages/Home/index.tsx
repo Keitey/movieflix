@@ -22,7 +22,7 @@ const Home: React.FC = () => {
 		{ cors: true, colors: 3},
 	);
 
-	const bannerMostPopularMovie = (store.moviesShelf.items[0] ? (backdrop_path + store.moviesShelf.items[0].backdrop_path) : "");
+	const mostPopularMovie = (store.moviesShelf.items[0] ? (backdrop_path + store.moviesShelf.items[0].backdrop_path) : "");
 
 	useEffect(() => {
 		store.moviesShelf.fetchPage(0);
@@ -38,7 +38,7 @@ const Home: React.FC = () => {
 				textAlign="center"
 				p="1rem"
 			>
-				Em destaque
+				Em destaque: {store.moviesShelf.items[0] && store.moviesShelf.items[0].title}
 			</Heading>
 			<Flex
 				align="center"
@@ -46,7 +46,7 @@ const Home: React.FC = () => {
 				p="1rem"
 			>
 				<Image
-					src={bannerMostPopularMovie}
+					src={mostPopularMovie}
 					alt=""
 					w="80%"
 					h="500px"
