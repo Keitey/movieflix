@@ -31,7 +31,7 @@ const Home: React.FC = () => {
 
 	return (
 		<Box
-			bg={`linear-gradient(transparent 5%, ${colors? colors[0]: "#1b1616"})`}
+			bg={colors &&`linear-gradient(to bottom, ${colors[0]}, ${colors[1]}, ${colors[2]})`}
 		>
 			<Heading
 				color="#000"
@@ -45,12 +45,14 @@ const Home: React.FC = () => {
 				justify="center"
 				p="1rem"
 			>
-				<Image
-					src={mostPopularMovie}
-					alt=""
-					w="80%"
-					h="500px"
-				/>
+				<Link to={`/details/${store.moviesShelf.items[0] && store.moviesShelf.items[0].id}`}>
+					<Image
+						src={mostPopularMovie}
+						alt=""
+						w="80%"
+						h="500px"
+					/>
+				</Link>
 			</Flex>
 			<Box>
 				<Heading
